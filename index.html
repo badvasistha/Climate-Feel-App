@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,75 +12,120 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
   <!-- LINK TO FIREBASE GOES HERE -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>s
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body>
-    <div class="container">
 
-        <br>
-    
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-            <div class="weather-container valign-wrapper">
-           <img src="assets/images/headerimg.jpg" height="300" width="960">
-          <h1 class="text-center"> Climate Feel App</h1>
+<body>
+  <!-- <div class="container"> -->
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Climate Feel App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Weather</a>
+              <a class="dropdown-item" href="#">Maps</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Activities</a>
             </div>
-        </div>
-    
-        <div class="row">
-    
-          <!-- Sign-Up Card-->
-          <div class="col-lg-6">
-            <div class="card card-default">
-              <div class="card-header">
-                Weather
-              </div>
-              <div class="card-body">
-    
-                <!-- Sign-up Form (note the various input "types")-->
-    
-                <form role="form">
-                  <div class="form-group row">
-                    <label for="name-input">Name:</label>
-                    <input class="form-control" id="name-input" type="text">
-                  </div>
-                  <div class="form-group row">
-                    <label for="address-input">Address</label>
-                    <input class="form-control" id="addres-name" type="address">
-                  </div>
-                  
-                  
-                  <button class="btn btn-default" id="add-user" type="submit">Submit</button>
-                </form>
-    
-              </div>
-    
-            </div>
-    
-          </div>
-    
-          <!-- Most Recent Member card -->
-          <div class="col-lg-6">
-            <div class="card card-default">
-              <div class="card-header">
-                Temperature
-              </div>
-              <div class="card-body" id="recent-member">
-                <h2 id="name-display"></h2>
-                <h4 id="email-display"></h4>
-                <h4 id="age-display"></h4>
-                <p id="comment-display"></p>
-              </div>
-            </div>
-          </div>
-    
-        </div>
-        <div class="card-footer text-muted">
-            By: Daniel, Badri, Deepesh
-          </div>
-    
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="EnterCity or Zip-code"
+            aria-label="EnterCity or Zip-code">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
-      
+    </nav>
+
+    <br>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <div class="weather-container valign-wrapper">
+        <img
+          src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
+          height="400" width="1200">
+        <h2 class="text-center"> Climate Change, because you should <i>Feel</i> it.</h2>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+
+      <!-- Sign-Up Card-->
+      <div class="col-lg-6">
+        <div class="card card-default">
+          <div class="card-header">
+            Weather
+          </div>
+          <div class="card-body">
+
+            <!-- Sign-up Form (note the various input "types")-->
+
+            <form role="form">
+              <div class="form-group row">
+                <label for="name-input">Name:</label>
+                <input class="form-control" id="name-input" type="text">
+              </div>
+              <div class="form-group row">
+                <label for="address-input">Address</label>
+                <input class="form-control" id="addres-name" type="address">
+              </div>
+
+
+              <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Most Recent Member card -->
+      <div class="col-lg-6">
+        <div class="card card-default">
+          <div class="card-header">
+            Temperature
+          </div>
+          <div class="card-body" id="recent-member">
+            <h2 id="name-display"></h2>
+            <h4 id="email-display"></h4>
+            <h4 id="age-display"></h4>
+            <p id="comment-display"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer text-muted">
+      <p>&copy;By: Daniel, Badri, Deepesh</p>
+    </div>
+
+  </div>
+
   <script src="./assets/javascript/app.js"></script>
 </body>
+
 </html>
