@@ -6,9 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./assets/css/style.css">
+
   <title>Climate Feel App</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- LINK TO FIREBASE GOES HERE -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>s
 </head>
 <body>
+    <div class="container">
+
+        <br>
+    
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="weather-container valign-wrapper">
+           <img src="assets/images/headerimg.jpg" height="300" width="960">
+          <h1 class="text-center"> Climate Feel App</h1>
+            </div>
+        </div>
+    
+        <div class="row">
+    
+          <!-- Sign-Up Card-->
+          <div class="col-lg-6">
+            <div class="card card-default">
+              <div class="card-header">
+                Weather
+              </div>
+              <div class="card-body">
+    
+                <!-- Sign-up Form (note the various input "types")-->
+    
+                <form role="form">
+                  <div class="form-group row">
+                    <label for="name-input">Name:</label>
+                    <input class="form-control" id="name-input" type="text">
+                  </div>
+                  <div class="form-group row">
+                    <label for="address-input">Address</label>
+                    <input class="form-control" id="addres-name" type="address">
+                  </div>
+                  
+                  
+                  <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+                </form>
+    
+              </div>
+    
+            </div>
+    
+          </div>
+    
+          <!-- Most Recent Member card -->
+          <div class="col-lg-6">
+            <div class="card card-default">
+              <div class="card-header">
+                Temperature
+              </div>
+              <div class="card-body" id="recent-member">
+                <h2 id="name-display"></h2>
+                <h4 id="email-display"></h4>
+                <h4 id="age-display"></h4>
+                <p id="comment-display"></p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        <div class="card-footer text-muted">
+            By: Daniel, Badri, Deepesh
+          </div>
+    
+      </div>
+      
   <script src="./assets/javascript/app.js"></script>
 </body>
 </html>
