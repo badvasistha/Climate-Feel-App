@@ -9,8 +9,10 @@ class UserSpecificClimateData {
     constructor(){
         this.latitude = 0;
         this.longitude = 0;
-        this.currentWeatherLink = '';
+        this.currentWeatherLink = ''; //
+        this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets?startdate=1970-01-01'
         this.userLocation = this.getUserLocation();
+        this.currentyear = new Date().getFullYear();
         
     }
 
@@ -51,7 +53,18 @@ class UserSpecificClimateData {
     }
 
     gethistoricalTempratureData(){
-
+        let numberOfYearsBack = 20;
+        let Targetyear = this.currentyear-numberOfYearsBack;
+        console.log(Targetyear);
+        $.ajax({
+            url: this.historicalWeatherLink,
+            headers:{ token:"EOAYWdoRcJTpiNiRiPnXxfyArgRvObHt"},
+            method: "GET"
+        }).then(function (response) {
+            //let results = response.results;
+            console.log(response);
+            
+        });
 
     }
 
@@ -73,7 +86,7 @@ class UserSpecificClimateData {
 var site = new UserSpecificClimateData();
 
 $(document).ready(function() {
-
+site.gethistoricalTempratureData();
 console.log(site);
 
 
