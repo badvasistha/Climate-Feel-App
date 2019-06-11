@@ -54,21 +54,21 @@ class UserSpecificClimateData {
 
     }
 
-    gethistoricalTempratureData( state, monthsBack) {
-        let that = this;
-        let states = {CA:"04",CO:"05",AL:"01",AK:"50"}
-        this.db.ref().once("value")
-        .then(function(snapshot) {
-             that.historicalData = snapshot.child(`USA${states[state]}`).val()
-            console.log(that.historicalData);
-            //need to write function which uses histroical Data here
-            //get the past 12 months of data with this function
-           console.log(that.getLastYearsDataFromHistorical());
-           console.log(that.getDataFromXyearsAgo(20));
-        });
+    // gethistoricalTempratureData( state, monthsBack) {
+    //     let that = this;
+    //     let states = {CA:"04",CO:"05",AL:"01",AK:"50",AZ:"02"}
+    //     this.db.ref().once("value")
+    //     .then(function(snapshot) {
+    //          that.historicalData = snapshot.child(`USA${states[state]}`).val()
+    //         console.log(that.historicalData);
+    //         //need to write function which uses histroical Data here
+    //         //get the past 12 months of data with this function
+    //        console.log(that.getLastYearsDataFromHistorical());
+    //        console.log(that.getDataFromXyearsAgo(20));
+    //     });
        
 
-    }
+    // }
 //get data from the last 12 months and returns an ARRAY containing the object datapoints
    getLastYearsDataFromHistorical(){
         let startingIndex = this.historicalData.length-12;
@@ -129,14 +129,14 @@ class UserSpecificClimateData {
 //firebase variable
 
 
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
+// firebase.initializeApp(firebaseConfig);
+// var database = firebase.database();
 
-var site = new UserSpecificClimateData(database);
+var site = new UserSpecificClimateData();
 
 $(document).ready(function () {
-    site.gethistoricalTempratureData();
-    var test = site.gethistoricalTempratureData("CA",0);
+    // site.gethistoricalTempratureData();
+    // var test = site.gethistoricalTempratureData("CA",0);
     
 
 
