@@ -28,7 +28,7 @@
   <!-- <div class="container"> -->
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Climate Feel App</a>
+      <a class="navbar-brand text-success" href="#"><b>Climate Feel App</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -77,11 +77,11 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <div class="card card-default">
-            <div class="card-header">
-              <h2>Call to Action</h2>
-            </div>
+              <div class="card-header p-3 mb-2 bg-dark">
+                  <h2 class="text-primary">Call to Action </h2>
+                </div>
             <div class="card-body">
               <!-- Sign-up Form (note the various input "types")-->
               <form role="form">
@@ -100,10 +100,10 @@
         </div>
 
         <!-- Most Recent Member card -->
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <div class="card card-default">
-            <div class="card-header">
-              <h2>Weather (user location) </h2>
+            <div class="card-header p-3 mb-2 bg-dark">
+              <h2 class="text-primary">Current Weather </h2>
             </div>
             <div class="list-group">
               <p class="list-group-item list-group-item-action list-group-item-secondary" id="average">Average
@@ -122,29 +122,27 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <div id="chartContainer" style="height: 300px; width: 100%"></div>
+          <div id="chartContainer" style="height: 350px; width: 100%"></div>
         </div>
 
         <div class="col-sm-6">
-          <div id="chartContainer" style="height: 300px; width: 50%"></div>
+          <div id="chartContainer" style="height: 350px; width: 100%"></div>
         </div>
       </div>
+    </div>
 
-      </br>
-
-      <div class="card-footer text-muted">
-          <p class="text-center">&copy;By: Daniel, Badri, Deepesh</p>
-        </div>
-      </div>
-
+    <div class="card-footer text-muted">
+      <p class="text-center">&copy;By: Daniel, Badri, Deepesh</p>
     </div>
   </div>
-  
+
   <script src="./assets/javascript/app.js"></script>
   <!-- Script Tages for canvas JS -->
-  
+
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+
 </body>
 
 </html>
