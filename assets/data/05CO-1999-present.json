@@ -1,0 +1,1717 @@
+[
+  {
+    "YearMonth": 199901,
+    "PCP": 1.07,
+    "TAVG": 29.8,
+    "TMIN": 17.9,
+    "TMAX": 41.7
+  },
+  {
+    "YearMonth": 199902,
+    "PCP": ".66",
+    "TAVG": 33.3,
+    "TMIN": 18.9,
+    "TMAX": 47.7
+  },
+  {
+    "YearMonth": 199903,
+    "PCP": ".72",
+    "TAVG": 39.3,
+    "TMIN": 24.8,
+    "TMAX": 53.7
+  },
+  {
+    "YearMonth": 199904,
+    "PCP": 4.38,
+    "TAVG": 40.1,
+    "TMIN": 27.7,
+    "TMAX": 52.6
+  },
+  {
+    "YearMonth": 199905,
+    "PCP": 2.64,
+    "TAVG": 50.4,
+    "TMIN": 37,
+    "TMAX": 63.9
+  },
+  {
+    "YearMonth": 199906,
+    "PCP": 1.64,
+    "TAVG": 60.5,
+    "TMIN": 45.7,
+    "TMAX": 75.3
+  },
+  {
+    "YearMonth": 199907,
+    "PCP": 2.59,
+    "TAVG": 68.3,
+    "TMIN": 54.5,
+    "TMAX": 82.1
+  },
+  {
+    "YearMonth": 199908,
+    "PCP": 3.27,
+    "TAVG": 65.5,
+    "TMIN": 52.4,
+    "TMAX": 78.6
+  },
+  {
+    "YearMonth": 199909,
+    "PCP": 1.39,
+    "TAVG": 55.4,
+    "TMIN": 41.3,
+    "TMAX": 69.5
+  },
+  {
+    "YearMonth": 199910,
+    "PCP": ".57",
+    "TAVG": 48,
+    "TMIN": 31.1,
+    "TMAX": 64.8
+  },
+  {
+    "YearMonth": 199911,
+    "PCP": ".37",
+    "TAVG": 41.2,
+    "TMIN": 25.1,
+    "TMAX": 57.3
+  },
+  {
+    "YearMonth": 199912,
+    "PCP": ".73",
+    "TAVG": 27.9,
+    "TMIN": 15.2,
+    "TMAX": 40.7
+  },
+  {
+    "YearMonth": 200001,
+    "PCP": 1.25,
+    "TAVG": 29.1,
+    "TMIN": 17.2,
+    "TMAX": 41
+  },
+  {
+    "YearMonth": 200002,
+    "PCP": 1.19,
+    "TAVG": 34.3,
+    "TMIN": 21.1,
+    "TMAX": 47.5
+  },
+  {
+    "YearMonth": 200003,
+    "PCP": 2.55,
+    "TAVG": 36.6,
+    "TMIN": 24.2,
+    "TMAX": 49.1
+  },
+  {
+    "YearMonth": 200004,
+    "PCP": 1.32,
+    "TAVG": 46.4,
+    "TMIN": 31,
+    "TMAX": 61.9
+  },
+  {
+    "YearMonth": 200005,
+    "PCP": 1.2,
+    "TAVG": 56.1,
+    "TMIN": 40.8,
+    "TMAX": 71.5
+  },
+  {
+    "YearMonth": 200006,
+    "PCP": 1,
+    "TAVG": 63,
+    "TMIN": 47.3,
+    "TMAX": 78.7
+  },
+  {
+    "YearMonth": 200007,
+    "PCP": 1.63,
+    "TAVG": 69.8,
+    "TMIN": 54.1,
+    "TMAX": 85.4
+  },
+  {
+    "YearMonth": 200008,
+    "PCP": 2.01,
+    "TAVG": 69,
+    "TMIN": 53.9,
+    "TMAX": 84.2
+  },
+  {
+    "YearMonth": 200009,
+    "PCP": 1.35,
+    "TAVG": 59.4,
+    "TMIN": 44,
+    "TMAX": 74.9
+  },
+  {
+    "YearMonth": 200010,
+    "PCP": 1.76,
+    "TAVG": 47.4,
+    "TMIN": 34.2,
+    "TMAX": 60.6
+  },
+  {
+    "YearMonth": 200011,
+    "PCP": ".83",
+    "TAVG": 27.2,
+    "TMIN": 15.2,
+    "TMAX": 39.2
+  },
+  {
+    "YearMonth": 200012,
+    "PCP": ".82",
+    "TAVG": 25.7,
+    "TMIN": 13.2,
+    "TMAX": 38.2
+  },
+  {
+    "YearMonth": 200101,
+    "PCP": 1.02,
+    "TAVG": 24.7,
+    "TMIN": 11.8,
+    "TMAX": 37.6
+  },
+  {
+    "YearMonth": 200102,
+    "PCP": 1.14,
+    "TAVG": 28.2,
+    "TMIN": 16.6,
+    "TMAX": 39.7
+  },
+  {
+    "YearMonth": 200103,
+    "PCP": 1.42,
+    "TAVG": 36,
+    "TMIN": 24.2,
+    "TMAX": 47.9
+  },
+  {
+    "YearMonth": 200104,
+    "PCP": 1.65,
+    "TAVG": 45.9,
+    "TMIN": 32.1,
+    "TMAX": 59.6
+  },
+  {
+    "YearMonth": 200105,
+    "PCP": 2.69,
+    "TAVG": 53.9,
+    "TMIN": 39.9,
+    "TMAX": 68
+  },
+  {
+    "YearMonth": 200106,
+    "PCP": ".94",
+    "TAVG": 63.9,
+    "TMIN": 47.8,
+    "TMAX": 79.8
+  },
+  {
+    "YearMonth": 200107,
+    "PCP": 2.44,
+    "TAVG": 70.2,
+    "TMIN": 55.4,
+    "TMAX": 85.1
+  },
+  {
+    "YearMonth": 200108,
+    "PCP": 1.97,
+    "TAVG": 66.9,
+    "TMIN": 52.1,
+    "TMAX": 81.6
+  },
+  {
+    "YearMonth": 200109,
+    "PCP": 1.04,
+    "TAVG": 60.3,
+    "TMIN": 44.4,
+    "TMAX": 76.2
+  },
+  {
+    "YearMonth": 200110,
+    "PCP": ".65",
+    "TAVG": 47.9,
+    "TMIN": 32.7,
+    "TMAX": 63
+  },
+  {
+    "YearMonth": 200111,
+    "PCP": 1.2,
+    "TAVG": 37.9,
+    "TMIN": 24.4,
+    "TMAX": 51.3
+  },
+  {
+    "YearMonth": 200112,
+    "PCP": ".65",
+    "TAVG": 26.4,
+    "TMIN": 13.7,
+    "TMAX": 39.2
+  },
+  {
+    "YearMonth": 200201,
+    "PCP": ".64",
+    "TAVG": 25.4,
+    "TMIN": 12.3,
+    "TMAX": 38.4
+  },
+  {
+    "YearMonth": 200202,
+    "PCP": ".48",
+    "TAVG": 27.1,
+    "TMIN": 12.2,
+    "TMAX": 41.9
+  },
+  {
+    "YearMonth": 200203,
+    "PCP": ".87",
+    "TAVG": 32,
+    "TMIN": 17,
+    "TMAX": 46.9
+  },
+  {
+    "YearMonth": 200204,
+    "PCP": ".57",
+    "TAVG": 47.3,
+    "TMIN": 32.1,
+    "TMAX": 62.6
+  },
+  {
+    "YearMonth": 200205,
+    "PCP": ".57",
+    "TAVG": 53.4,
+    "TMIN": 37.6,
+    "TMAX": 69.2
+  },
+  {
+    "YearMonth": 200206,
+    "PCP": ".87",
+    "TAVG": 67.1,
+    "TMIN": 50.4,
+    "TMAX": 83.7
+  },
+  {
+    "YearMonth": 200207,
+    "PCP": 1.02,
+    "TAVG": 71,
+    "TMIN": 55,
+    "TMAX": 87.1
+  },
+  {
+    "YearMonth": 200208,
+    "PCP": 1.49,
+    "TAVG": 66.8,
+    "TMIN": 51.2,
+    "TMAX": 82.3
+  },
+  {
+    "YearMonth": 200209,
+    "PCP": 2.1,
+    "TAVG": 58.4,
+    "TMIN": 44.7,
+    "TMAX": 72
+  },
+  {
+    "YearMonth": 200210,
+    "PCP": 1.62,
+    "TAVG": 43.2,
+    "TMIN": 30.1,
+    "TMAX": 56.3
+  },
+  {
+    "YearMonth": 200211,
+    "PCP": ".98",
+    "TAVG": 33.7,
+    "TMIN": 21.2,
+    "TMAX": 46.2
+  },
+  {
+    "YearMonth": 200212,
+    "PCP": ".64",
+    "TAVG": 27.6,
+    "TMIN": 15.4,
+    "TMAX": 39.8
+  },
+  {
+    "YearMonth": 200301,
+    "PCP": ".44",
+    "TAVG": 31.6,
+    "TMIN": 18.7,
+    "TMAX": 44.6
+  },
+  {
+    "YearMonth": 200302,
+    "PCP": 1.49,
+    "TAVG": 26.3,
+    "TMIN": 14.5,
+    "TMAX": 38.2
+  },
+  {
+    "YearMonth": 200303,
+    "PCP": 2.19,
+    "TAVG": 36.6,
+    "TMIN": 23.9,
+    "TMAX": 49.4
+  },
+  {
+    "YearMonth": 200304,
+    "PCP": 1.57,
+    "TAVG": 45.3,
+    "TMIN": 31.4,
+    "TMAX": 59.3
+  },
+  {
+    "YearMonth": 200305,
+    "PCP": 1.75,
+    "TAVG": 53.8,
+    "TMIN": 39.7,
+    "TMAX": 68
+  },
+  {
+    "YearMonth": 200306,
+    "PCP": 2.07,
+    "TAVG": 60.1,
+    "TMIN": 45.7,
+    "TMAX": 74.4
+  },
+  {
+    "YearMonth": 200307,
+    "PCP": 1.02,
+    "TAVG": 72.4,
+    "TMIN": 55.6,
+    "TMAX": 89.3
+  },
+  {
+    "YearMonth": 200308,
+    "PCP": 1.85,
+    "TAVG": 68.4,
+    "TMIN": 53.5,
+    "TMAX": 83.3
+  },
+  {
+    "YearMonth": 200309,
+    "PCP": 1.44,
+    "TAVG": 56.7,
+    "TMIN": 41.2,
+    "TMAX": 72.1
+  },
+  {
+    "YearMonth": 200310,
+    "PCP": ".37",
+    "TAVG": 51.5,
+    "TMIN": 35.6,
+    "TMAX": 67.3
+  },
+  {
+    "YearMonth": 200311,
+    "PCP": 1.34,
+    "TAVG": 33,
+    "TMIN": 21.3,
+    "TMAX": 44.7
+  },
+  {
+    "YearMonth": 200312,
+    "PCP": ".91",
+    "TAVG": 28.6,
+    "TMIN": 15.7,
+    "TMAX": 41.5
+  },
+  {
+    "YearMonth": 200401,
+    "PCP": ".9",
+    "TAVG": 26.2,
+    "TMIN": 13,
+    "TMAX": 39.3
+  },
+  {
+    "YearMonth": 200402,
+    "PCP": 1.27,
+    "TAVG": 26.3,
+    "TMIN": 13.7,
+    "TMAX": 38.8
+  },
+  {
+    "YearMonth": 200403,
+    "PCP": ".61",
+    "TAVG": 41.8,
+    "TMIN": 27,
+    "TMAX": 56.7
+  },
+  {
+    "YearMonth": 200404,
+    "PCP": 3.15,
+    "TAVG": 44.4,
+    "TMIN": 31.4,
+    "TMAX": 57.4
+  },
+  {
+    "YearMonth": 200405,
+    "PCP": ".7",
+    "TAVG": 54.8,
+    "TMIN": 39.8,
+    "TMAX": 69.9
+  },
+  {
+    "YearMonth": 200406,
+    "PCP": 1.99,
+    "TAVG": 60.8,
+    "TMIN": 46,
+    "TMAX": 75.7
+  },
+  {
+    "YearMonth": 200407,
+    "PCP": 2.36,
+    "TAVG": 65.9,
+    "TMIN": 51.4,
+    "TMAX": 80.5
+  },
+  {
+    "YearMonth": 200408,
+    "PCP": 1.85,
+    "TAVG": 63.2,
+    "TMIN": 48.6,
+    "TMAX": 77.8
+  },
+  {
+    "YearMonth": 200409,
+    "PCP": 2.17,
+    "TAVG": 57.7,
+    "TMIN": 43.3,
+    "TMAX": 72.1
+  },
+  {
+    "YearMonth": 200410,
+    "PCP": 1.47,
+    "TAVG": 46.8,
+    "TMIN": 34,
+    "TMAX": 59.6
+  },
+  {
+    "YearMonth": 200411,
+    "PCP": 1.69,
+    "TAVG": 33.8,
+    "TMIN": 22.7,
+    "TMAX": 44.9
+  },
+  {
+    "YearMonth": 200412,
+    "PCP": ".77",
+    "TAVG": 28.4,
+    "TMIN": 16,
+    "TMAX": 40.9
+  },
+  {
+    "YearMonth": 200501,
+    "PCP": 1.97,
+    "TAVG": 30.2,
+    "TMIN": 19,
+    "TMAX": 41.4
+  },
+  {
+    "YearMonth": 200502,
+    "PCP": 1.06,
+    "TAVG": 31.3,
+    "TMIN": 19,
+    "TMAX": 43.5
+  },
+  {
+    "YearMonth": 200503,
+    "PCP": 1.4,
+    "TAVG": 35.2,
+    "TMIN": 22,
+    "TMAX": 48.3
+  },
+  {
+    "YearMonth": 200504,
+    "PCP": 1.97,
+    "TAVG": 43.4,
+    "TMIN": 29.4,
+    "TMAX": 57.5
+  },
+  {
+    "YearMonth": 200505,
+    "PCP": 1.49,
+    "TAVG": 53.2,
+    "TMIN": 38.8,
+    "TMAX": 67.6
+  },
+  {
+    "YearMonth": 200506,
+    "PCP": 2.2,
+    "TAVG": 60.9,
+    "TMIN": 46,
+    "TMAX": 75.9
+  },
+  {
+    "YearMonth": 200507,
+    "PCP": 1.05,
+    "TAVG": 70,
+    "TMIN": 53.3,
+    "TMAX": 86.8
+  },
+  {
+    "YearMonth": 200508,
+    "PCP": 2.23,
+    "TAVG": 65,
+    "TMIN": 50.7,
+    "TMAX": 79.4
+  },
+  {
+    "YearMonth": 200509,
+    "PCP": 1.35,
+    "TAVG": 60.2,
+    "TMIN": 45,
+    "TMAX": 75.3
+  },
+  {
+    "YearMonth": 200510,
+    "PCP": 2.33,
+    "TAVG": 48.3,
+    "TMIN": 34.6,
+    "TMAX": 61.9
+  },
+  {
+    "YearMonth": 200511,
+    "PCP": ".89",
+    "TAVG": 37.5,
+    "TMIN": 24.1,
+    "TMAX": 51
+  },
+  {
+    "YearMonth": 200512,
+    "PCP": 1.01,
+    "TAVG": 26,
+    "TMIN": 13.4,
+    "TMAX": 38.6
+  },
+  {
+    "YearMonth": 200601,
+    "PCP": ".97",
+    "TAVG": 29.9,
+    "TMIN": 16.4,
+    "TMAX": 43.5
+  },
+  {
+    "YearMonth": 200602,
+    "PCP": ".46",
+    "TAVG": 28,
+    "TMIN": 13.4,
+    "TMAX": 42.6
+  },
+  {
+    "YearMonth": 200603,
+    "PCP": 1.62,
+    "TAVG": 34.9,
+    "TMIN": 21.7,
+    "TMAX": 48
+  },
+  {
+    "YearMonth": 200604,
+    "PCP": ".91",
+    "TAVG": 47.1,
+    "TMIN": 31.3,
+    "TMAX": 62.8
+  },
+  {
+    "YearMonth": 200605,
+    "PCP": ".91",
+    "TAVG": 55.6,
+    "TMIN": 39.9,
+    "TMAX": 71.3
+  },
+  {
+    "YearMonth": 200606,
+    "PCP": ".81",
+    "TAVG": 65.7,
+    "TMIN": 49.4,
+    "TMAX": 82.1
+  },
+  {
+    "YearMonth": 200607,
+    "PCP": 3,
+    "TAVG": 69.6,
+    "TMIN": 55.5,
+    "TMAX": 83.8
+  },
+  {
+    "YearMonth": 200608,
+    "PCP": 2.66,
+    "TAVG": 65.6,
+    "TMIN": 52.2,
+    "TMAX": 79.1
+  },
+  {
+    "YearMonth": 200609,
+    "PCP": 2.19,
+    "TAVG": 53.5,
+    "TMIN": 39.6,
+    "TMAX": 67.5
+  },
+  {
+    "YearMonth": 200610,
+    "PCP": 2.83,
+    "TAVG": 44.9,
+    "TMIN": 32.2,
+    "TMAX": 57.6
+  },
+  {
+    "YearMonth": 200611,
+    "PCP": ".8",
+    "TAVG": 36.5,
+    "TMIN": 22.9,
+    "TMAX": 50
+  },
+  {
+    "YearMonth": 200612,
+    "PCP": 1.51,
+    "TAVG": 26.8,
+    "TMIN": 15.3,
+    "TMAX": 38.4
+  },
+  {
+    "YearMonth": 200701,
+    "PCP": 1,
+    "TAVG": 19.4,
+    "TMIN": 6.9,
+    "TMAX": 31.9
+  },
+  {
+    "YearMonth": 200702,
+    "PCP": ".96",
+    "TAVG": 27.7,
+    "TMIN": 16.3,
+    "TMAX": 39.1
+  },
+  {
+    "YearMonth": 200703,
+    "PCP": 1.09,
+    "TAVG": 40.5,
+    "TMIN": 26.8,
+    "TMAX": 54.2
+  },
+  {
+    "YearMonth": 200704,
+    "PCP": 2.08,
+    "TAVG": 43.3,
+    "TMIN": 30.1,
+    "TMAX": 56.6
+  },
+  {
+    "YearMonth": 200705,
+    "PCP": 2.09,
+    "TAVG": 53.5,
+    "TMIN": 39.5,
+    "TMAX": 67.4
+  },
+  {
+    "YearMonth": 200706,
+    "PCP": 1.17,
+    "TAVG": 62.8,
+    "TMIN": 47.2,
+    "TMAX": 78.5
+  },
+  {
+    "YearMonth": 200707,
+    "PCP": 2,
+    "TAVG": 69.7,
+    "TMIN": 54.6,
+    "TMAX": 84.8
+  },
+  {
+    "YearMonth": 200708,
+    "PCP": 2.41,
+    "TAVG": 68.8,
+    "TMIN": 54.4,
+    "TMAX": 83.2
+  },
+  {
+    "YearMonth": 200709,
+    "PCP": 1.8,
+    "TAVG": 59.7,
+    "TMIN": 44.9,
+    "TMAX": 74.4
+  },
+  {
+    "YearMonth": 200710,
+    "PCP": 1.13,
+    "TAVG": 48.3,
+    "TMIN": 33.3,
+    "TMAX": 63.4
+  },
+  {
+    "YearMonth": 200711,
+    "PCP": ".4",
+    "TAVG": 38,
+    "TMIN": 23,
+    "TMAX": 53.1
+  },
+  {
+    "YearMonth": 200712,
+    "PCP": 2.58,
+    "TAVG": 22.4,
+    "TMIN": 11.1,
+    "TMAX": 33.6
+  },
+  {
+    "YearMonth": 200801,
+    "PCP": 1.6,
+    "TAVG": 20.9,
+    "TMIN": 8.4,
+    "TMAX": 33.4
+  },
+  {
+    "YearMonth": 200802,
+    "PCP": 1.44,
+    "TAVG": 27.6,
+    "TMIN": 15,
+    "TMAX": 40.2
+  },
+  {
+    "YearMonth": 200803,
+    "PCP": 1.01,
+    "TAVG": 33.9,
+    "TMIN": 20.1,
+    "TMAX": 47.8
+  },
+  {
+    "YearMonth": 200804,
+    "PCP": 1.14,
+    "TAVG": 40.9,
+    "TMIN": 25.9,
+    "TMAX": 55.8
+  },
+  {
+    "YearMonth": 200805,
+    "PCP": 1.55,
+    "TAVG": 51,
+    "TMIN": 36.3,
+    "TMAX": 65.7
+  },
+  {
+    "YearMonth": 200806,
+    "PCP": ".98",
+    "TAVG": 61.6,
+    "TMIN": 45.5,
+    "TMAX": 77.6
+  },
+  {
+    "YearMonth": 200807,
+    "PCP": 1.48,
+    "TAVG": 69.2,
+    "TMIN": 53.5,
+    "TMAX": 84.9
+  },
+  {
+    "YearMonth": 200808,
+    "PCP": 3.14,
+    "TAVG": 65.7,
+    "TMIN": 51.9,
+    "TMAX": 79.4
+  },
+  {
+    "YearMonth": 200809,
+    "PCP": 1.1,
+    "TAVG": 57.3,
+    "TMIN": 42.5,
+    "TMAX": 72.2
+  },
+  {
+    "YearMonth": 200810,
+    "PCP": 1.27,
+    "TAVG": 47.6,
+    "TMIN": 32.9,
+    "TMAX": 62.2
+  },
+  {
+    "YearMonth": 200811,
+    "PCP": ".92",
+    "TAVG": 38.3,
+    "TMIN": 25.2,
+    "TMAX": 51.4
+  },
+  {
+    "YearMonth": 200812,
+    "PCP": 1.83,
+    "TAVG": 25.3,
+    "TMIN": 13.2,
+    "TMAX": 37.4
+  },
+  {
+    "YearMonth": 200901,
+    "PCP": ".98",
+    "TAVG": 28.3,
+    "TMIN": 15.5,
+    "TMAX": 41.1
+  },
+  {
+    "YearMonth": 200902,
+    "PCP": ".78",
+    "TAVG": 32.2,
+    "TMIN": 18.6,
+    "TMAX": 45.8
+  },
+  {
+    "YearMonth": 200903,
+    "PCP": 1.13,
+    "TAVG": 37.1,
+    "TMIN": 22.7,
+    "TMAX": 51.4
+  },
+  {
+    "YearMonth": 200904,
+    "PCP": 2.36,
+    "TAVG": 42,
+    "TMIN": 28.7,
+    "TMAX": 55.4
+  },
+  {
+    "YearMonth": 200905,
+    "PCP": 1.94,
+    "TAVG": 54.5,
+    "TMIN": 41.1,
+    "TMAX": 67.9
+  },
+  {
+    "YearMonth": 200906,
+    "PCP": 2.64,
+    "TAVG": 59.8,
+    "TMIN": 46.3,
+    "TMAX": 73.3
+  },
+  {
+    "YearMonth": 200907,
+    "PCP": 2.31,
+    "TAVG": 66.9,
+    "TMIN": 52,
+    "TMAX": 81.9
+  },
+  {
+    "YearMonth": 200908,
+    "PCP": 1.18,
+    "TAVG": 64.8,
+    "TMIN": 49.4,
+    "TMAX": 80.3
+  },
+  {
+    "YearMonth": 200909,
+    "PCP": 1.46,
+    "TAVG": 57.6,
+    "TMIN": 43.3,
+    "TMAX": 71.9
+  },
+  {
+    "YearMonth": 200910,
+    "PCP": 2.1,
+    "TAVG": 40.8,
+    "TMIN": 28.5,
+    "TMAX": 53.1
+  },
+  {
+    "YearMonth": 200911,
+    "PCP": ".61",
+    "TAVG": 37.8,
+    "TMIN": 24.1,
+    "TMAX": 51.5
+  },
+  {
+    "YearMonth": 200912,
+    "PCP": 1.3,
+    "TAVG": 20.4,
+    "TMIN": 8.5,
+    "TMAX": 32.2
+  },
+  {
+    "YearMonth": 201001,
+    "PCP": ".88",
+    "TAVG": 26.1,
+    "TMIN": 13.2,
+    "TMAX": 38.9
+  },
+  {
+    "YearMonth": 201002,
+    "PCP": 1.21,
+    "TAVG": 24.6,
+    "TMIN": 12.9,
+    "TMAX": 36.3
+  },
+  {
+    "YearMonth": 201003,
+    "PCP": 1.74,
+    "TAVG": 35.2,
+    "TMIN": 22,
+    "TMAX": 48.3
+  },
+  {
+    "YearMonth": 201004,
+    "PCP": 2.13,
+    "TAVG": 43.6,
+    "TMIN": 30.1,
+    "TMAX": 57.2
+  },
+  {
+    "YearMonth": 201005,
+    "PCP": 1.34,
+    "TAVG": 50.1,
+    "TMIN": 36.1,
+    "TMAX": 64.2
+  },
+  {
+    "YearMonth": 201006,
+    "PCP": 1.35,
+    "TAVG": 64,
+    "TMIN": 48.8,
+    "TMAX": 79.1
+  },
+  {
+    "YearMonth": 201007,
+    "PCP": 2.46,
+    "TAVG": 68.6,
+    "TMIN": 53.9,
+    "TMAX": 83.4
+  },
+  {
+    "YearMonth": 201008,
+    "PCP": 2.34,
+    "TAVG": 66.5,
+    "TMIN": 52,
+    "TMAX": 80.9
+  },
+  {
+    "YearMonth": 201009,
+    "PCP": ".73",
+    "TAVG": 61.2,
+    "TMIN": 44.4,
+    "TMAX": 78
+  },
+  {
+    "YearMonth": 201010,
+    "PCP": 1.41,
+    "TAVG": 49.2,
+    "TMIN": 34.8,
+    "TMAX": 63.6
+  },
+  {
+    "YearMonth": 201011,
+    "PCP": ".95",
+    "TAVG": 33.6,
+    "TMIN": 20.1,
+    "TMAX": 47.2
+  },
+  {
+    "YearMonth": 201012,
+    "PCP": 1.65,
+    "TAVG": 31.1,
+    "TMIN": 19.3,
+    "TMAX": 42.8
+  },
+  {
+    "YearMonth": 201101,
+    "PCP": ".71",
+    "TAVG": 24,
+    "TMIN": 10.9,
+    "TMAX": 37.1
+  },
+  {
+    "YearMonth": 201102,
+    "PCP": 1.17,
+    "TAVG": 24.2,
+    "TMIN": 10.6,
+    "TMAX": 37.8
+  },
+  {
+    "YearMonth": 201103,
+    "PCP": 1.16,
+    "TAVG": 37.7,
+    "TMIN": 24.1,
+    "TMAX": 51.3
+  },
+  {
+    "YearMonth": 201104,
+    "PCP": 2.1,
+    "TAVG": 43,
+    "TMIN": 29.2,
+    "TMAX": 56.8
+  },
+  {
+    "YearMonth": 201105,
+    "PCP": 2.57,
+    "TAVG": 49.3,
+    "TMIN": 35.8,
+    "TMAX": 62.8
+  },
+  {
+    "YearMonth": 201106,
+    "PCP": ".94",
+    "TAVG": 62.9,
+    "TMIN": 46.9,
+    "TMAX": 78.9
+  },
+  {
+    "YearMonth": 201107,
+    "PCP": 2.54,
+    "TAVG": 70,
+    "TMIN": 55.2,
+    "TMAX": 84.7
+  },
+  {
+    "YearMonth": 201108,
+    "PCP": 1.6,
+    "TAVG": 69.2,
+    "TMIN": 53.9,
+    "TMAX": 84.4
+  },
+  {
+    "YearMonth": 201109,
+    "PCP": 1.27,
+    "TAVG": 58.5,
+    "TMIN": 44,
+    "TMAX": 73
+  },
+  {
+    "YearMonth": 201110,
+    "PCP": 1.66,
+    "TAVG": 47.1,
+    "TMIN": 32.8,
+    "TMAX": 61.3
+  },
+  {
+    "YearMonth": 201111,
+    "PCP": ".99",
+    "TAVG": 34.9,
+    "TMIN": 21.3,
+    "TMAX": 48.4
+  },
+  {
+    "YearMonth": 201112,
+    "PCP": ".91",
+    "TAVG": 24.4,
+    "TMIN": 11.9,
+    "TMAX": 37
+  },
+  {
+    "YearMonth": 201201,
+    "PCP": ".69",
+    "TAVG": 29.4,
+    "TMIN": 15.8,
+    "TMAX": 43
+  },
+  {
+    "YearMonth": 201202,
+    "PCP": 1.36,
+    "TAVG": 27.4,
+    "TMIN": 15.4,
+    "TMAX": 39.3
+  },
+  {
+    "YearMonth": 201203,
+    "PCP": ".45",
+    "TAVG": 41.9,
+    "TMIN": 26.6,
+    "TMAX": 57.2
+  },
+  {
+    "YearMonth": 201204,
+    "PCP": 1.38,
+    "TAVG": 48.2,
+    "TMIN": 33.6,
+    "TMAX": 62.8
+  },
+  {
+    "YearMonth": 201205,
+    "PCP": ".91",
+    "TAVG": 55.4,
+    "TMIN": 39.8,
+    "TMAX": 71
+  },
+  {
+    "YearMonth": 201206,
+    "PCP": ".42",
+    "TAVG": 67.9,
+    "TMIN": 51,
+    "TMAX": 84.8
+  },
+  {
+    "YearMonth": 201207,
+    "PCP": 2.27,
+    "TAVG": 70.6,
+    "TMIN": 55.6,
+    "TMAX": 85.6
+  },
+  {
+    "YearMonth": 201208,
+    "PCP": 1.07,
+    "TAVG": 67.7,
+    "TMIN": 52.3,
+    "TMAX": 83.2
+  },
+  {
+    "YearMonth": 201209,
+    "PCP": 1.29,
+    "TAVG": 59.5,
+    "TMIN": 44.2,
+    "TMAX": 74.8
+  },
+  {
+    "YearMonth": 201210,
+    "PCP": ".72",
+    "TAVG": 46.5,
+    "TMIN": 32,
+    "TMAX": 61
+  },
+  {
+    "YearMonth": 201211,
+    "PCP": ".44",
+    "TAVG": 39.4,
+    "TMIN": 24.5,
+    "TMAX": 54.3
+  },
+  {
+    "YearMonth": 201212,
+    "PCP": 1.31,
+    "TAVG": 25.9,
+    "TMIN": 13.5,
+    "TMAX": 38.4
+  },
+  {
+    "YearMonth": 201301,
+    "PCP": ".91",
+    "TAVG": 22.9,
+    "TMIN": 9.1,
+    "TMAX": 36.7
+  },
+  {
+    "YearMonth": 201302,
+    "PCP": ".89",
+    "TAVG": 25.7,
+    "TMIN": 12.6,
+    "TMAX": 38.8
+  },
+  {
+    "YearMonth": 201303,
+    "PCP": 1.07,
+    "TAVG": 35,
+    "TMIN": 21,
+    "TMAX": 48.8
+  },
+  {
+    "YearMonth": 201304,
+    "PCP": 1.67,
+    "TAVG": 39.8,
+    "TMIN": 26,
+    "TMAX": 53.5
+  },
+  {
+    "YearMonth": 201305,
+    "PCP": 1.55,
+    "TAVG": 52.8,
+    "TMIN": 38.4,
+    "TMAX": 67.2
+  },
+  {
+    "YearMonth": 201306,
+    "PCP": ".66",
+    "TAVG": 65.6,
+    "TMIN": 48.9,
+    "TMAX": 82.3
+  },
+  {
+    "YearMonth": 201307,
+    "PCP": 2.44,
+    "TAVG": 68.5,
+    "TMIN": 54.2,
+    "TMAX": 82.8
+  },
+  {
+    "YearMonth": 201308,
+    "PCP": 2.24,
+    "TAVG": 67,
+    "TMIN": 52.9,
+    "TMAX": 81.1
+  },
+  {
+    "YearMonth": 201309,
+    "PCP": 3.88,
+    "TAVG": 60.7,
+    "TMIN": 47.7,
+    "TMAX": 73.7
+  },
+  {
+    "YearMonth": 201310,
+    "PCP": 1.51,
+    "TAVG": 44.2,
+    "TMIN": 30.9,
+    "TMAX": 57.5
+  },
+  {
+    "YearMonth": 201311,
+    "PCP": 1.15,
+    "TAVG": 35.2,
+    "TMIN": 22.5,
+    "TMAX": 47.9
+  },
+  {
+    "YearMonth": 201312,
+    "PCP": ".82",
+    "TAVG": 23.7,
+    "TMIN": 10.8,
+    "TMAX": 36.6
+  },
+  {
+    "YearMonth": 201401,
+    "PCP": 1.18,
+    "TAVG": 26.4,
+    "TMIN": 13.1,
+    "TMAX": 39.8
+  },
+  {
+    "YearMonth": 201402,
+    "PCP": 1.18,
+    "TAVG": 27.6,
+    "TMIN": 15.8,
+    "TMAX": 39.4
+  },
+  {
+    "YearMonth": 201403,
+    "PCP": 1.15,
+    "TAVG": 36.3,
+    "TMIN": 22.1,
+    "TMAX": 50.5
+  },
+  {
+    "YearMonth": 201404,
+    "PCP": 1.35,
+    "TAVG": 43.3,
+    "TMIN": 29.6,
+    "TMAX": 57.1
+  },
+  {
+    "YearMonth": 201405,
+    "PCP": 2.15,
+    "TAVG": 52.4,
+    "TMIN": 38.5,
+    "TMAX": 66.3
+  },
+  {
+    "YearMonth": 201406,
+    "PCP": 1.19,
+    "TAVG": 62.5,
+    "TMIN": 47,
+    "TMAX": 78
+  },
+  {
+    "YearMonth": 201407,
+    "PCP": 2.76,
+    "TAVG": 68.4,
+    "TMIN": 54.2,
+    "TMAX": 82.6
+  },
+  {
+    "YearMonth": 201408,
+    "PCP": 2.59,
+    "TAVG": 64.6,
+    "TMIN": 50.9,
+    "TMAX": 78.4
+  },
+  {
+    "YearMonth": 201409,
+    "PCP": 2.08,
+    "TAVG": 60,
+    "TMIN": 45.7,
+    "TMAX": 74.3
+  },
+  {
+    "YearMonth": 201410,
+    "PCP": 1.08,
+    "TAVG": 49.9,
+    "TMIN": 35.6,
+    "TMAX": 64
+  },
+  {
+    "YearMonth": 201411,
+    "PCP": 1.12,
+    "TAVG": 33.4,
+    "TMIN": 20.1,
+    "TMAX": 46.7
+  },
+  {
+    "YearMonth": 201412,
+    "PCP": 1.31,
+    "TAVG": 27.9,
+    "TMIN": 16.4,
+    "TMAX": 39.4
+  },
+  {
+    "YearMonth": 201501,
+    "PCP": ".65",
+    "TAVG": 29.2,
+    "TMIN": 17.3,
+    "TMAX": 41.1
+  },
+  {
+    "YearMonth": 201502,
+    "PCP": 1.35,
+    "TAVG": 32.1,
+    "TMIN": 19.4,
+    "TMAX": 44.9
+  },
+  {
+    "YearMonth": 201503,
+    "PCP": ".86",
+    "TAVG": 40.6,
+    "TMIN": 26.3,
+    "TMAX": 54.9
+  },
+  {
+    "YearMonth": 201504,
+    "PCP": 1.88,
+    "TAVG": 44.8,
+    "TMIN": 31.1,
+    "TMAX": 58.6
+  },
+  {
+    "YearMonth": 201505,
+    "PCP": 5.3,
+    "TAVG": 49.8,
+    "TMIN": 38.4,
+    "TMAX": 61.1
+  },
+  {
+    "YearMonth": 201506,
+    "PCP": 1.91,
+    "TAVG": 64.9,
+    "TMIN": 50.6,
+    "TMAX": 79.2
+  },
+  {
+    "YearMonth": 201507,
+    "PCP": 2.37,
+    "TAVG": 66.6,
+    "TMIN": 52.9,
+    "TMAX": 80.2
+  },
+  {
+    "YearMonth": 201508,
+    "PCP": 1.67,
+    "TAVG": 66.9,
+    "TMIN": 52,
+    "TMAX": 81.8
+  },
+  {
+    "YearMonth": 201509,
+    "PCP": ".76",
+    "TAVG": 62.6,
+    "TMIN": 47.2,
+    "TMAX": 77.9
+  },
+  {
+    "YearMonth": 201510,
+    "PCP": 1.82,
+    "TAVG": 51.4,
+    "TMIN": 38.2,
+    "TMAX": 64.6
+  },
+  {
+    "YearMonth": 201511,
+    "PCP": 1.69,
+    "TAVG": 34.6,
+    "TMIN": 21.7,
+    "TMAX": 47.5
+  },
+  {
+    "YearMonth": 201512,
+    "PCP": 1.47,
+    "TAVG": 25.8,
+    "TMIN": 14.2,
+    "TMAX": 37.4
+  },
+  {
+    "YearMonth": 201601,
+    "PCP": 1.02,
+    "TAVG": 25.6,
+    "TMIN": 13.2,
+    "TMAX": 38.1
+  },
+  {
+    "YearMonth": 201602,
+    "PCP": ".85",
+    "TAVG": 32.4,
+    "TMIN": 19,
+    "TMAX": 45.7
+  },
+  {
+    "YearMonth": 201603,
+    "PCP": 1.28,
+    "TAVG": 37.9,
+    "TMIN": 23.9,
+    "TMAX": 52
+  },
+  {
+    "YearMonth": 201604,
+    "PCP": 2.74,
+    "TAVG": 43.7,
+    "TMIN": 30.6,
+    "TMAX": 56.8
+  },
+  {
+    "YearMonth": 201605,
+    "PCP": 2.07,
+    "TAVG": 50.8,
+    "TMIN": 37.5,
+    "TMAX": 64.1
+  },
+  {
+    "YearMonth": 201606,
+    "PCP": 1.35,
+    "TAVG": 66.4,
+    "TMIN": 50.5,
+    "TMAX": 82.3
+  },
+  {
+    "YearMonth": 201607,
+    "PCP": 1.64,
+    "TAVG": 69.2,
+    "TMIN": 54,
+    "TMAX": 84.4
+  },
+  {
+    "YearMonth": 201608,
+    "PCP": 2.07,
+    "TAVG": 64.5,
+    "TMIN": 50.4,
+    "TMAX": 78.7
+  },
+  {
+    "YearMonth": 201609,
+    "PCP": 1,
+    "TAVG": 59.7,
+    "TMIN": 44.7,
+    "TMAX": 74.6
+  },
+  {
+    "YearMonth": 201610,
+    "PCP": ".49",
+    "TAVG": 51.8,
+    "TMIN": 36.2,
+    "TMAX": 67.3
+  },
+  {
+    "YearMonth": 201611,
+    "PCP": ".92",
+    "TAVG": 40.2,
+    "TMIN": 26.4,
+    "TMAX": 54
+  },
+  {
+    "YearMonth": 201612,
+    "PCP": 1.65,
+    "TAVG": 25.2,
+    "TMIN": 12.8,
+    "TMAX": 37.6
+  },
+  {
+    "YearMonth": 201701,
+    "PCP": 2.29,
+    "TAVG": 25.3,
+    "TMIN": 14.5,
+    "TMAX": 36.2
+  },
+  {
+    "YearMonth": 201702,
+    "PCP": 1,
+    "TAVG": 35.4,
+    "TMIN": 22.9,
+    "TMAX": 47.9
+  },
+  {
+    "YearMonth": 201703,
+    "PCP": 1.19,
+    "TAVG": 42.5,
+    "TMIN": 27.9,
+    "TMAX": 57.1
+  },
+  {
+    "YearMonth": 201704,
+    "PCP": 2.17,
+    "TAVG": 44.3,
+    "TMIN": 30.8,
+    "TMAX": 57.7
+  },
+  {
+    "YearMonth": 201705,
+    "PCP": 2.82,
+    "TAVG": 51.5,
+    "TMIN": 37.7,
+    "TMAX": 65.2
+  },
+  {
+    "YearMonth": 201706,
+    "PCP": ".69",
+    "TAVG": 64.8,
+    "TMIN": 48.9,
+    "TMAX": 80.7
+  },
+  {
+    "YearMonth": 201707,
+    "PCP": 3.05,
+    "TAVG": 69.4,
+    "TMIN": 54.7,
+    "TMAX": 84.1
+  },
+  {
+    "YearMonth": 201708,
+    "PCP": 1.87,
+    "TAVG": 64.7,
+    "TMIN": 50.6,
+    "TMAX": 78.8
+  },
+  {
+    "YearMonth": 201709,
+    "PCP": 1.98,
+    "TAVG": 59.1,
+    "TMIN": 45.2,
+    "TMAX": 73.1
+  },
+  {
+    "YearMonth": 201710,
+    "PCP": ".93",
+    "TAVG": 46.7,
+    "TMIN": 31.9,
+    "TMAX": 61.5
+  },
+  {
+    "YearMonth": 201711,
+    "PCP": ".52",
+    "TAVG": 41.3,
+    "TMIN": 27.7,
+    "TMAX": 54.9
+  },
+  {
+    "YearMonth": 201712,
+    "PCP": ".4",
+    "TAVG": 30.1,
+    "TMIN": 16.3,
+    "TMAX": 43.9
+  },
+  {
+    "YearMonth": 201801,
+    "PCP": ".81",
+    "TAVG": 29.7,
+    "TMIN": 15.7,
+    "TMAX": 43.6
+  },
+  {
+    "YearMonth": 201802,
+    "PCP": 1.13,
+    "TAVG": 28.6,
+    "TMIN": 15.7,
+    "TMAX": 41.4
+  },
+  {
+    "YearMonth": 201803,
+    "PCP": ".9",
+    "TAVG": 37.8,
+    "TMIN": 23.2,
+    "TMAX": 52.4
+  },
+  {
+    "YearMonth": 201804,
+    "PCP": 1.37,
+    "TAVG": 43.9,
+    "TMIN": 29.3,
+    "TMAX": 58.5
+  },
+  {
+    "YearMonth": 201805,
+    "PCP": 1.54,
+    "TAVG": 57.1,
+    "TMIN": 42.3,
+    "TMAX": 72
+  },
+  {
+    "YearMonth": 201806,
+    "PCP": ".98",
+    "TAVG": 66.5,
+    "TMIN": 50.1,
+    "TMAX": 82.9
+  },
+  {
+    "YearMonth": 201807,
+    "PCP": 2.11,
+    "TAVG": 69.9,
+    "TMIN": 54.8,
+    "TMAX": 85
+  },
+  {
+    "YearMonth": 201808,
+    "PCP": 1.45,
+    "TAVG": 66.2,
+    "TMIN": 51.3,
+    "TMAX": 81
+  },
+  {
+    "YearMonth": 201809,
+    "PCP": ".66",
+    "TAVG": 61.8,
+    "TMIN": 46.5,
+    "TMAX": 77.1
+  },
+  {
+    "YearMonth": 201810,
+    "PCP": 2.38,
+    "TAVG": 45,
+    "TMIN": 32.9,
+    "TMAX": 57.1
+  },
+  {
+    "YearMonth": 201811,
+    "PCP": ".87",
+    "TAVG": 32.4,
+    "TMIN": 19.9,
+    "TMAX": 45
+  },
+  {
+    "YearMonth": 201812,
+    "PCP": ".74",
+    "TAVG": 26.4,
+    "TMIN": 13.8,
+    "TMAX": 39.1
+  },
+  {
+    "YearMonth": 201901,
+    "PCP": 1.38,
+    "TAVG": 25.8,
+    "TMIN": 13.3,
+    "TMAX": 38.4
+  },
+  {
+    "YearMonth": 201902,
+    "PCP": 1.57,
+    "TAVG": 24.9,
+    "TMIN": 12.2,
+    "TMAX": 37.6
+  },
+  {
+    "YearMonth": 201903,
+    "PCP": 2.78,
+    "TAVG": 33.6,
+    "TMIN": 21.5,
+    "TMAX": 45.6
+  },
+  {
+    "YearMonth": 201904,
+    "PCP": 1.39,
+    "TAVG": 45.4,
+    "TMIN": 31.6,
+    "TMAX": 59.1
+  },
+  {
+    "YearMonth": 201905,
+    "PCP": 2.86,
+    "TAVG": 47.8,
+    "TMIN": 35,
+    "TMAX": 60.5
+  }
+]
