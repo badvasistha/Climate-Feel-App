@@ -49,45 +49,48 @@ class UserSpecificClimateData {
             that.currentHumidity = response.main.humidity;
             that.currentPressure = response.main.pressure;
             that.currentDescription = response.weather[0].description;
-
+            that.renderCurrentWeather(response)
         });
 
     }
 
-    // gethistoricalTempratureData( state, monthsBack) {
-    //     let that = this;
-    //     let states = {CA:"04",CO:"05",AL:"01",AK:"50",AZ:"02"}
-    //     this.db.ref().once("value")
-    //     .then(function(snapshot) {
-    //          that.historicalData = snapshot.child(`USA${states[state]}`).val()
-    //         console.log(that.historicalData);
-    //         //need to write function which uses histroical Data here
-    //         //get the past 12 months of data with this function
-    //        console.log(that.getLastYearsDataFromHistorical());
-    //        console.log(that.getDataFromXyearsAgo(20));
-    //     });
-       
+    renderCurrentWeather(data){
 
-    // }
+    }
+
+    gethistoricalTempratureData( state, monthsBack) {
+        let that = this;
+        let states = {CA:"04",CO:"05",AL:"01",AK:"50",AZ:"03",AR:"02",CT:'06',DE:"07",FL:"08",GE:"09",ID:"10",
+         IL:"11",IN:"12", IO:"13",KA:"14", KE:"15",MA:"19",MD:"18",ME:"17",MI:"20"}
+        return this.db.ref().once("value")
+        .then(function(snapshot) {
+            that.historicalData = snapshot.child(`USA${states[state]}`).val()
+           return that.historicalData;
+        });
+           
+    }
+
 //get data from the last 12 months and returns an ARRAY containing the object datapoints
-   getLastYearsDataFromHistorical(){
-        let startingIndex = this.historicalData.length-12;
+   getLastYearsDataFromHistorical(data){
+        let startingIndex = data.length-12;
         let Last12MonthsOfData = [];
-        for(let i = startingIndex; i < this.historicalData.length; i++){
-            Last12MonthsOfData.push(this.historicalData[i]);
+        for(let i = startingIndex; i < data.length; i++){
+            Last12MonthsOfData.push(data[i]);
         }
         return Last12MonthsOfData;
     }
+
+
 //will throw a null error if you put a number too large 20 is max
-    getDataFromXyearsAgo(x){
-        if(x>20||x === undifined|| x<0){
+    getDataFromXyearsAgo(data, x){
+        if(x>20|| x<0){
             console.error("error X is either greater that 20, undifined, or less than 0")
         }else{
         let months = x*12
-        let startingIndex = this.historicalData.length-months;
+        let startingIndex = data.length-months;
         let DataOver12Months = [];
         for(let i = startingIndex; i < startingIndex+12; i++){
-            DataOver12Months.push(this.historicalData[i]);
+            DataOver12Months.push(data[i]);
         }
         return DataOver12Months;
     }
@@ -95,17 +98,49 @@ class UserSpecificClimateData {
 
     //takes Data from current 12 months and compares it to past 12 months
     createTempratureComparisonDataset(Datacurrent, DataPast){
-        Datacurrent.forEach(element => {
-             element['TAVG']
-        });
+        if(Datacurrent.length !== DataPast.length){
+            console.error("datasets are different lengths and cannot be built");
+        }
+        let output = []
+        for(let i = 0; i<Datacurrent.length;i++){
+            if(DataPast[i]["YearMonth"].toString().slice(-2) !== Datacurrent[i]["YearMonth"].toString().slice(-2)){
+                console.error("The TWO datasets do not have matching dates")
+            }
+            let datapointmonth = DataPast[i]["YearMonth"].toString().slice(-2);
+            
+            let datapoint = { x: datapointmonth, y:[DataPast[i]["TAVG"], Datacurrent[i]["TAVG"]]
+            }
+            output.push(datapoint);
 
-
-
+        }
+        return output;
     }
 
+
     //function which is called after state specific historical data is recived from Firebase
-    renderHistoricalData(){
-        
+    renderTAVGComparison(TAV){
+        var options = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title:{
+                text: "Monthly Average Temperature Variation in Tokyo"
+            },		
+            axisX: {
+                valueFormatString: "MMMM"
+            },
+            axisY: { 
+                title: "Temperature (°C)",
+                suffix: " °C"
+            },
+            data: [{
+                type: "rangeSplineArea",
+                indexLabel: "{y[#index]}°",
+                xValueFormatString: "MMM YYYY",
+                toolTipContent: "<b>{x}</b> </br> Min: {y[0]} °C, Max: {y[1]} °C",
+                dataPoints: TAV
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
 
     }
 
@@ -120,6 +155,7 @@ class UserSpecificClimateData {
 
     }
 
+
     
 
 
@@ -127,17 +163,37 @@ class UserSpecificClimateData {
 
 }
 //firebase variable
+var firebaseConfig = {
+    apiKey: "AIzaSyAJe06nmla8caiFGdvD9f3MhHGZVdvSwD0",
+    authDomain: "climate-feel.firebaseapp.com",
+    databaseURL: "https://climate-feel.firebaseio.com",
+    projectId: "climate-feel",
+    storageBucket: "",
+    messagingSenderId: "76697086015",
+    appId: "1:76697086015:web:806c5d978abc1e0b"
+  };
 
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
 
-// firebase.initializeApp(firebaseConfig);
-// var database = firebase.database();
+var site = new UserSpecificClimateData(database);
 
-var site = new UserSpecificClimateData();
-
-$(document).ready(function () {
+$(document).ready(async function () {
     // site.gethistoricalTempratureData();
-    // var test = site.gethistoricalTempratureData("CA",0);
-    
+    // site.gethistoricalTempratureData("CA",0).then(data => {
+    //     console.log(data);
+
+    // });
+
+    const data = await site.gethistoricalTempratureData("AK",0);
+    console.log(data);
+    const lastYearsData = site.getLastYearsDataFromHistorical(data);
+    const OldData = site.getDataFromXyearsAgo(data, 10);
+    let tavgComparisonData = site.createTempratureComparisonDataset(lastYearsData, OldData);
+
+
+
+
 
 
 
