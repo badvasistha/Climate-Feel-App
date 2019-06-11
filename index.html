@@ -68,7 +68,8 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="weather-container valign-wrapper">
-        <img src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
+        <img
+          src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
           height="400" width="1200">
         <h2 class="text-center"> Climate Change, because you should <i>Feel</i> it.</h2>
         <p> Please take some time to reflect upon the weather on your location, compare it with the weather from 10
@@ -79,7 +80,7 @@
         <div class="col-lg-6">
           <div class="card card-default">
             <div class="card-header">
-              Weather
+              <h2>Call to Action</h2>
             </div>
             <div class="card-body">
               <!-- Sign-up Form (note the various input "types")-->
@@ -101,24 +102,43 @@
         <!-- Most Recent Member card -->
         <div class="col-lg-6">
           <div class="card card-default">
-            <div class="card-header">Temperature 
+            <div class="card-header">
+              <h2>Weather (user location) </h2>
             </div>
-              <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action list-group-item-light">Average Temperature</a>
-                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Maximum Temperature</a>
-                <a href="#" class="list-group-item list-group-item-action list-group-item-info">Minimum Temperature</a>
-              </div>
+            <div class="list-group">
+              <p class="list-group-item list-group-item-action list-group-item-secondary" id="average">Average
+                Temperature</p>
+              <p class="list-group-item list-group-item-action list-group-item-danger" id="maximum">Maximum Temperature
+              </p>
+              <p class="list-group-item list-group-item-action list-group-item-info" id="minimum">Minimum Temperature
+              </p>
+              <p class="list-group-item list-group-item-action list-group-item-warning" id="humidity">Humidity</p>
+              <p class="list-group-item list-group-item-action list-group-item-primary" id="pressure">Pressure</p>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-      <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-      <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+      </br>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div id="chartContainer" style="height: 300px; width: 50%"></div>
+          <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+          <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        </div>
+
+        <div class="col-sm-6">
+          <div id="chartContainer" style="height: 300px; width: 50%"></div>
+        </div>
+      </div>
+
+      </br>
 
       <div class="card-footer text-muted">
-        <p class="text-center">&copy;By: Daniel, Badri, Deepesh</p>
+          <p class="text-center">&copy;By: Daniel, Badri, Deepesh</p>
+        </div>
       </div>
+
     </div>
   </div>
 
