@@ -97,7 +97,7 @@ class UserSpecificClimateData {
     }
 
     //takes Data from current 12 months and compares it to past 12 months
-    createTempratureComparisonDataset(Datacurrent, DataPast){
+    createComparisonDataset(Datacurrent, DataPast, label){
         if(Datacurrent.length !== DataPast.length){
             console.error("datasets are different lengths and cannot be built");
         }
@@ -108,7 +108,7 @@ class UserSpecificClimateData {
             }
             let datapointmonth = parseInt(DataPast[i]["YearMonth"].toString().slice(-2));
             
-            let datapoint = { x: i+1, y:[DataPast[i]["TAVG"], Datacurrent[i]["TAVG"]], label:datapointmonth
+            let datapoint = { x: i+1, y:[DataPast[i][label], Datacurrent[i][label]], label:datapointmonth
             }
             output.push(datapoint);
 
@@ -144,6 +144,10 @@ class UserSpecificClimateData {
             }]
         };
         $("#chartContainer").CanvasJSChart(options);
+
+    }
+
+    renderPCPComparison(PCP){
 
     }
 
@@ -193,8 +197,7 @@ $(document).ready(async function () {
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
-    let tavgComparisonData = site.createTempratureComparisonDataset(lastYearsData, OldData);
-    console.log(tavgComparisonData);
+    let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
     site.renderTAVGComparison(tavgComparisonData);
 
 
