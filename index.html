@@ -12,9 +12,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
   <!-- LINK TO FIREBASE GOES HERE -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <!-- Firebase References -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -56,76 +63,127 @@
         </form>
       </div>
     </nav>
-
     <br>
 
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="weather-container valign-wrapper">
-        <img
-          src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
+        <img src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
           height="400" width="1200">
         <h2 class="text-center"> Climate Change, because you should <i>Feel</i> it.</h2>
+        <p> Please take some time to reflect upon the weather on your location, compare it with the weather from 10
+          years ago, and notice/report any significant climate change over the years.</p>
       </div>
 
-
-    </div>
-
-    <div class="row">
-
-      <!-- Sign-Up Card-->
-      <div class="col-lg-6">
-        <div class="card card-default">
-          <div class="card-header">
-            Weather
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-default">
+            <div class="card-header">
+              Weather
+            </div>
+            <div class="card-body">
+              <!-- Sign-up Form (note the various input "types")-->
+              <form role="form">
+                <div class="form-group row">
+                  <label for="name-input">Name:</label>
+                  <input class="form-control" id="name-input" type="text">
+                </div>
+                <div class="form-group row">
+                  <label for="address-input">Address</label>
+                  <input class="form-control" id="addres-name" type="address">
+                </div>
+                <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+              </form>
+            </div>
           </div>
-          <div class="card-body">
-
-            <!-- Sign-up Form (note the various input "types")-->
-
-            <form role="form">
-              <div class="form-group row">
-                <label for="name-input">Name:</label>
-                <input class="form-control" id="name-input" type="text">
-              </div>
-              <div class="form-group row">
-                <label for="address-input">Address</label>
-                <input class="form-control" id="addres-name" type="address">
-              </div>
-
-
-              <button class="btn btn-default" id="add-user" type="submit">Submit</button>
-            </form>
-
-          </div>
-
         </div>
 
-      </div>
-
-      <!-- Most Recent Member card -->
-      <div class="col-lg-6">
-        <div class="card card-default">
-          <div class="card-header">
-            Temperature
-          </div>
-          <div class="card-body" id="recent-member">
-            <h2 id="name-display"></h2>
-            <h4 id="email-display"></h4>
-            <h4 id="age-display"></h4>
-            <p id="comment-display"></p>
+        <!-- Most Recent Member card -->
+        <div class="col-lg-6">
+          <div class="card card-default">
+            <div class="card-header">Temperature 
+            </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action list-group-item-light">Average Temperature</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Maximum Temperature</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-info">Minimum Temperature</a>
+              </div>
           </div>
         </div>
       </div>
+      
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
+      <div class="card-footer text-muted">
+        <p class="text-center">&copy;By: Daniel, Badri, Deepesh</p>
+      </div>
     </div>
-    <div class="card-footer text-muted">
-      <p>&copy;By: Daniel, Badri, Deepesh</p>
-    </div>
-
   </div>
 
   <script src="./assets/javascript/app.js"></script>
+  <script>
+    window.onload = function () {
+
+      var options = {
+        animationEnabled: true,
+        exportEnabled: true,
+        title: {
+          text: "Temperature in Newark - November 2017"
+        },
+        axisY: {
+          includeZero: false,
+          title: "Temperature (°C)",
+          suffix: " °C"
+        },
+        axisX: {
+          valueFormatString: "DD MMM"
+        },
+        data: [
+          {
+            type: "rangeArea",
+            xValueFormatString: "DD MMMM",
+            yValueFormatString: "#0.## °C",
+            toolTipContent: " <span style=\"color:#4F81BC\">{x}</span><br><b>Min:</b> {y[0]}<br><b>Max:</b> {y[1]}",
+            dataPoints: [
+              { x: new Date(2017, 10, 1), y: [4, 14] },
+              { x: new Date(2017, 10, 2), y: [13, 24] },
+              { x: new Date(2017, 10, 3), y: [10, 24] },
+              { x: new Date(2017, 10, 4), y: [6, 14] },
+              { x: new Date(2017, 10, 5), y: [12, 17] },
+              { x: new Date(2017, 10, 6), y: [8, 19] },
+              { x: new Date(2017, 10, 7), y: [4, 10] },
+              { x: new Date(2017, 10, 8), y: [4, 11] },
+              { x: new Date(2017, 10, 9), y: [3, 12] },
+              { x: new Date(2017, 10, 10), y: [-4, 10] },
+              { x: new Date(2017, 10, 11), y: [-4, 5] },
+              { x: new Date(2017, 10, 12), y: [-2, 9] },
+              { x: new Date(2017, 10, 13), y: [3, 9] },
+              { x: new Date(2017, 10, 14), y: [2, 9] },
+              { x: new Date(2017, 10, 15), y: [1, 12] },
+              { x: new Date(2017, 10, 16), y: [7, 15] },
+              { x: new Date(2017, 10, 17), y: [3, 10] },
+              { x: new Date(2017, 10, 18), y: [-1, 12] },
+              { x: new Date(2017, 10, 19), y: [4, 15] },
+              { x: new Date(2017, 10, 20), y: [2, 9] },
+              { x: new Date(2017, 10, 21), y: [2, 16] },
+              { x: new Date(2017, 10, 22), y: [2, 13] },
+              { x: new Date(2017, 10, 23), y: [-1, 8] },
+              { x: new Date(2017, 10, 24), y: [-3, 11] },
+              { x: new Date(2017, 10, 25), y: [1, 15] },
+              { x: new Date(2017, 10, 26), y: [3, 11] },
+              { x: new Date(2017, 10, 27), y: [3, 12] },
+              { x: new Date(2017, 10, 28), y: [0, 12] },
+              { x: new Date(2017, 10, 29), y: [4, 19] },
+              { x: new Date(2017, 10, 30), y: [0, 11] }
+            ]
+          }]
+      };
+      $("#chartContainer").CanvasJSChart(options);
+
+    }
+  </script>
 </body>
 
 </html>
