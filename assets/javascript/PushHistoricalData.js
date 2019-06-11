@@ -5672,15 +5672,7 @@ var removeExtraKeys = function () {
 //   return output;
 // }
 
-var firebaseConfig = {
-  apiKey: "AIzaSyAJe06nmla8caiFGdvD9f3MhHGZVdvSwD0",
-  authDomain: "climate-feel.firebaseapp.com",
-  databaseURL: "https://climate-feel.firebaseio.com",
-  projectId: "climate-feel",
-  storageBucket: "",
-  messagingSenderId: "76697086015",
-  appId: "1:76697086015:web:806c5d978abc1e0b"
-};
+
 
 firebase.initializeApp(firebaseConfig);
 
