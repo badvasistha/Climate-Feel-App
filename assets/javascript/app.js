@@ -71,25 +71,26 @@ class UserSpecificClimateData {
     }
 
 //get data from the last 12 months and returns an ARRAY containing the object datapoints
-   getLastYearsDataFromHistorical(){
-       
-        let startingIndex = this.historicalData.length-12;
+   getLastYearsDataFromHistorical(data){
+        let startingIndex = data.length-12;
         let Last12MonthsOfData = [];
-        for(let i = startingIndex; i < this.historicalData.length; i++){
-            Last12MonthsOfData.push(this.historicalData[i]);
+        for(let i = startingIndex; i < data.length; i++){
+            Last12MonthsOfData.push(data[i]);
         }
         return Last12MonthsOfData;
     }
+
+
 //will throw a null error if you put a number too large 20 is max
-    getDataFromXyearsAgo(x){
-        if(x>20||x === undifined|| x<0){
+    getDataFromXyearsAgo(data, x){
+        if(x>20|| x<0){
             console.error("error X is either greater that 20, undifined, or less than 0")
         }else{
         let months = x*12
-        let startingIndex = this.historicalData.length-months;
+        let startingIndex = data.length-months;
         let DataOver12Months = [];
         for(let i = startingIndex; i < startingIndex+12; i++){
-            DataOver12Months.push(this.historicalData[i]);
+            DataOver12Months.push(data[i]);
         }
         return DataOver12Months;
     }
@@ -97,17 +98,27 @@ class UserSpecificClimateData {
 
     //takes Data from current 12 months and compares it to past 12 months
     createTempratureComparisonDataset(Datacurrent, DataPast){
+        if(Datacurrent.length !== DataPast.length){
+            console.error("datasets are different lengths and cannot be built");
+        }
+        let output = []
+        for(let i = 0; i<Datacurrent.length;i++){
+            if(DataPast[i]["YearMonth"].toString().slice(-2) !== Datacurrent[i]["YearMonth"].toString().slice(-2)){
+                console.error("The TWO datasets do not have matching dates")
+            }
+            let datapointmonth = DataPast[i]["YearMonth"].toString().slice(-2);
+            
+            let datapoint = { x: datapointmonth, y:[DataPast[i]["TAVG"], Datacurrent[i]["TAVG"]]
+            }
+            output.push(datapoint);
 
-        Datacurrent.forEach(element => {
-             element['TAVG']
-        });
-
-
- // dataPoints: [
-    //        { x: new Date(2017, 10, 1), y: [4, 14] },
+        }
+        return output;
     }
+
+
     //function which is called after state specific historical data is recived from Firebase
-    renderHistoricalData(){
+    renderTAVGComparison(TAV){
         
 
     }
@@ -122,6 +133,7 @@ class UserSpecificClimateData {
 
 
     }
+
 
     
 
@@ -152,8 +164,13 @@ $(document).ready(async function () {
 
     // });
 
-    const data = await site.gethistoricalTempratureData("CA",0);
+    const data = await site.gethistoricalTempratureData("AK",0);
     console.log(data);
+    const lastYearsData = site.getLastYearsDataFromHistorical(data);
+    const OldData = site.getDataFromXyearsAgo(data, 10);
+    let tavgComparisonData = site.createTempratureComparisonDataset(lastYearsData, OldData);
+
+
 
 
 
