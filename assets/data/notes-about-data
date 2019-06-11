@@ -11,10 +11,14 @@ PMDI - Modified Palmer Drought Severity Index
 CDD - Cooling Degree Days
 HDD - Heating Degree Days
 SPnn - Standard Precipitation Index
+USA01 USA02 USA05=California
 01 -alabama
-
-
+02 - arkinsa
+03- Arizona
 04 - Colorado
 05 - California
+
+
+louisiana failed...
 
 https://www7.ncdc.noaa.gov/CDO/CDODivisionalSelect.jsp#
