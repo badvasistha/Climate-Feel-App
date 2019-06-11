@@ -119,7 +119,28 @@ class UserSpecificClimateData {
 
     //function which is called after state specific historical data is recived from Firebase
     renderTAVGComparison(TAV){
-        
+        var options = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title:{
+                text: "Monthly Average Temperature Variation in Tokyo"
+            },		
+            axisX: {
+                valueFormatString: "MMMM"
+            },
+            axisY: { 
+                title: "Temperature (°C)",
+                suffix: " °C"
+            },
+            data: [{
+                type: "rangeSplineArea",
+                indexLabel: "{y[#index]}°",
+                xValueFormatString: "MMM YYYY",
+                toolTipContent: "<b>{x}</b> </br> Min: {y[0]} °C, Max: {y[1]} °C",
+                dataPoints: TAV
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
 
     }
 
