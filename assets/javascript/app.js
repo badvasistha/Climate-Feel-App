@@ -106,9 +106,9 @@ class UserSpecificClimateData {
             if(DataPast[i]["YearMonth"].toString().slice(-2) !== Datacurrent[i]["YearMonth"].toString().slice(-2)){
                 console.error("The TWO datasets do not have matching dates")
             }
-            let datapointmonth = DataPast[i]["YearMonth"].toString().slice(-2);
+            let datapointmonth = parseInt(DataPast[i]["YearMonth"].toString().slice(-2));
             
-            let datapoint = { x: datapointmonth, y:[DataPast[i]["TAVG"], Datacurrent[i]["TAVG"]]
+            let datapoint = { x: i+1, y:[DataPast[i]["TAVG"], Datacurrent[i]["TAVG"]], label:datapointmonth
             }
             output.push(datapoint);
 
@@ -123,20 +123,23 @@ class UserSpecificClimateData {
             exportEnabled: true,
             animationEnabled: true,
             title:{
-                text: "Monthly Average Temperature Variation in Tokyo"
+                text: "Monthly Average Temperature Variation in your state"
             },		
             axisX: {
-                valueFormatString: "MMMM"
+                title: "Month Of the year",
+                labelFormatter: function(e){
+                    return  "x: " + e.value;
+                }
+                
             },
             axisY: { 
-                title: "Temperature (°C)",
-                suffix: " °C"
+                title: "Temperature (°F)",
+                suffix: " °F"
             },
             data: [{
                 type: "rangeSplineArea",
                 indexLabel: "{y[#index]}°",
-                xValueFormatString: "MMM YYYY",
-                toolTipContent: "<b>{x}</b> </br> Min: {y[0]} °C, Max: {y[1]} °C",
+                
                 dataPoints: TAV
             }]
         };
@@ -184,13 +187,15 @@ $(document).ready(async function () {
     //     console.log(data);
 
     // });
+    
 
-    const data = await site.gethistoricalTempratureData("AK",0);
+    const data = await site.gethistoricalTempratureData("CA",0);
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
-    const OldData = site.getDataFromXyearsAgo(data, 10);
+    const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createTempratureComparisonDataset(lastYearsData, OldData);
-
+    console.log(tavgComparisonData);
+    site.renderTAVGComparison(tavgComparisonData);
 
 
 
