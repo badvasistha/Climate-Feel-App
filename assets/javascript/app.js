@@ -32,7 +32,7 @@ class UserSpecificClimateData {
         let lat = position.coords.latitude;
         this.latitude = lat;
         this.longitude = position.coords.longitude;
-        this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&APPID=8e024863714b99764415af5f004fb0e8`;
+        this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
         this.getCurrentWeather();
     }
 
@@ -54,11 +54,11 @@ class UserSpecificClimateData {
                 that.currentDescription = response.weather[0].description;
                 that.renderCurrentWeather(response)
                 $('.card-header').text(that.locationName);
-                $('#average').text(" : " + that.currentTemp);
-                $('#maximum').text(' : ' + that.maxTemp)
-                $('#minimum').text(' : ' + that.minTemp)
-                $('#humidity').text (' : ' + that.currentHumidity)
-                $('#pressure').text(' : ' + that.currentPressure);
+                $('#average').text("Average Temprature °F: " + that.currentTemp);
+                $('#maximum').text('Max Temprature °F: ' + that.maxTemp)
+                $('#minimum').text('Min Temprature °F: ' + that.minTemp)
+                $('#humidity').text ('Humidity%: ' + that.currentHumidity)
+                $('#pressure').text('current Pressure(hPa): ' + that.currentPressure);
             }
 
         );
