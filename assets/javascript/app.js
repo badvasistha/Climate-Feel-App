@@ -53,12 +53,12 @@ class UserSpecificClimateData {
                 that.currentPressure = response.main.pressure;
                 that.currentDescription = response.weather[0].description;
                 that.renderCurrentWeather(response)
-                $('.card-header').text(that.locationName);
-                $('#average').text(" : " + that.currentTemp);
-                $('#maximum').text(' : ' + that.maxTemp)
-                $('#minimum').text(' : ' + that.minTemp)
-                $('#humidity').text (' : ' + that.currentHumidity)
-                $('#pressure').text(' : ' + that.currentPressure);
+                $('#current-weather').text(that.locationName);
+                $('#average').text("Average Temperature: " + that.currentTemp);
+                $('#maximum').text("Maximum Temperature: " + that.maxTemp)
+                $('#minimum').text("Minimum Temperature: " + that.minTemp)
+                $('#humidity').text ("Humidity: " + that.currentHumidity)
+                $('#pressure').text("Pressure: " + that.currentPressure);
             }
 
         );
