@@ -1,9 +1,9 @@
-// going to start with the open weather API weather API 
+// going to start with the open weather API weather API
 
 //we also need to get users current location using an api
 
 //someone enters the website...
-//grab the users current location 
+//grab the users current location
 
 class UserSpecificClimateData {
     constructor(firebaseDb) {
@@ -63,7 +63,7 @@ class UserSpecificClimateData {
 
         );
 
-      
+
 
 
     }
@@ -81,7 +81,7 @@ class UserSpecificClimateData {
             that.historicalData = snapshot.child(`USA${states[state]}`).val()
            return that.historicalData;
         });
-           
+
     }
 
 //get data from the last 12 months and returns an ARRAY containing the object datapoints
@@ -121,7 +121,7 @@ class UserSpecificClimateData {
                 console.error("The TWO datasets do not have matching dates")
             }
             let datapointmonth = parseInt(DataPast[i]["YearMonth"].toString().slice(-2));
-            
+
             let datapoint = { x: i+1, y:[DataPast[i][label], Datacurrent[i][label]], label:datapointmonth
             }
             output.push(datapoint);
@@ -132,37 +132,62 @@ class UserSpecificClimateData {
 
 
     //function which is called after state specific historical data is recived from Firebase
-    renderTAVGComparison(TAV){
+    renderTAVGComparison(TAV, jquery){
         var options = {
             exportEnabled: true,
             animationEnabled: true,
             title:{
                 text: "Monthly Average Temperature Variation in your state"
-            },		
+            },
             axisX: {
                 title: "Month Of the year",
                 labelFormatter: function(e){
                     return  "x: " + e.value;
                 }
-                
+
             },
-            axisY: { 
+            axisY: {
                 title: "Temperature (°F)",
                 suffix: " °F"
+
             },
             data: [{
                 type: "rangeSplineArea",
                 indexLabel: "{y[#index]}°",
-                
+
                 dataPoints: TAV
             }]
         };
-        $("#chartContainer").CanvasJSChart(options);
+        jquery.CanvasJSChart(options);
 
     }
 
-    renderPCPComparison(PCP){
+    renderPCPComparison(PCP, jquery){
+      var options = {
+          exportEnabled: true,
+          animationEnabled: true,
+          title:{
+              text: "Average percipitation this year vs 20 years ago"
+          },
+          axisX: {
+              title: "Month Of the year",
+              labelFormatter: function(e){
+                  return  "x: " + e.value;
+              }
+          },
+          axisY: {
+              title: "Inches of rain",
+              suffix: `"`,
+              logarithmic:  true
+          },
+          data: [{
+              type: "rangeSplineArea",
+              indexLabel: "{y[#index]}°",
 
+              dataPoints: PCP
+          }]
+      };
+      jquery.CanvasJSChart(options);
     }
 
     getHistoricalCO2Data() {
@@ -177,7 +202,7 @@ class UserSpecificClimateData {
     }
 
 
-    
+
 
 
 
@@ -205,16 +230,17 @@ $(document).ready(async function () {
     //     console.log(data);
 
     // });
-    
 
-    const data = await site.gethistoricalTempratureData("CA",0);
+
+    const data = await site.gethistoricalTempratureData("AL",0);
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
-    site.renderTAVGComparison(tavgComparisonData);
-
-
+    site.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
+    let PCPComparison = site.createComparisonDataset(lastYearsData, OldData, "PCP");
+    console.log(PCPComparison);
+    site.renderPCPComparison(PCPComparison, $("#chartContainer1"));
 
 
 
