@@ -53,8 +53,7 @@ class UserSpecificClimateData {
                 that.currentPressure = response.main.pressure;
                 that.currentDescription = response.weather[0].description;
                 that.renderCurrentWeather(response)
-<<<<<<
-                $('.card-header').text(that.locationName);
+                $('#current-weather').text(that.locationName);
                 $('#average').text("Average Temprature °F: " + that.currentTemp);
                 $('#maximum').text('Max Temprature °F: ' + that.maxTemp)
                 $('#minimum').text('Min Temprature °F: ' + that.minTemp)
