@@ -129,7 +129,29 @@ class UserSpecificClimateData {
         }
         return output;
     }
+    
 
+    //takes Data from current 12 months and compares it to past 12 months
+    createMinMaxComparisonDataset(Dataset){
+        let output = []
+        for(let i = 0; i<Dataset.length;i++){
+            let datapointmonth = parseInt(Dataset[i]["YearMonth"].toString().slice(-2));
+            let datapoint = { x: i+1, y:[Dataset[i]["TMIN"], Dataset[i]["TMAX"]], label:datapointmonth
+            }
+            output.push(datapoint);
+
+        }
+        return output;
+    }
+
+    toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        } else {
+            e.dataSeries.visible = true;
+        }
+        e.chart.render();
+    }
 
     //function which is called after state specific historical data is recived from Firebase
     renderTAVGComparison(TAV, jquery){
@@ -152,7 +174,8 @@ class UserSpecificClimateData {
 
             },
             data: [{
-                type: "rangeSplineArea",
+                // type: "rangeSplineArea",
+                type: "rangeArea",
                 indexLabel: "{y[#index]}°",
 
                 dataPoints: TAV
@@ -188,6 +211,48 @@ class UserSpecificClimateData {
           }]
       };
       jquery.CanvasJSChart(options);
+    }
+
+    renderMinMaxComparrisonData(Past, current, DisplayID){
+
+        var chart = new CanvasJS.Chart(DisplayID, {
+            exportEnabled: true,
+            animationEnabled: true,
+            theme: "light2",
+            title:{
+                text: "Temperature Variation - last Year vs 20 Years Ago"
+            },
+            axisX: {
+                title: "12 month Period"
+            },
+            axisY: {
+                suffix: " °F"
+            },     
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                horizontalAlign: "right",
+                itemclick: this.toggleDataSeries
+            },
+            data: [{
+                type: "rangeArea",
+                showInLegend: true,
+                name: "Past Data",
+                markerSize: 0,
+                dataPoints: Past
+            },
+            {
+                type: "rangeArea",
+                showInLegend: true,
+                name: "Current Data",
+                markerSize: 0,
+                dataPoints: current
+            }]
+        });
+        chart.render();
+
     }
 
     getHistoricalCO2Data() {
@@ -232,17 +297,18 @@ $(document).ready(async function () {
     // });
     //some type of
 
-    const data = await site.gethistoricalTempratureData("AL",0);
+    const data = await site.gethistoricalTempratureData("CA",0);
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
     site.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
     let PCPComparison = site.createComparisonDataset(lastYearsData, OldData, "PCP");
-    console.log(PCPComparison);
     site.renderPCPComparison(PCPComparison, $("#chartContainer1"));
-
-
+    const oldMinMax = site.createMinMaxComparisonDataset(OldData);
+    const CurrentMinMax = site.createMinMaxComparisonDataset(lastYearsData);
+    console.log(oldMinMax);
+    site.renderMinMaxComparrisonData(oldMinMax,CurrentMinMax, "chartContainer2");
 
 
 });
