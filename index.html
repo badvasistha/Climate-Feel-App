@@ -40,10 +40,10 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href=".text-primary">Link</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Menu
             </a>
@@ -68,8 +68,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="weather-container valign-wrapper">
-        <img
-          src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
+        <img src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
           height="400" width="1200">
         <h2 class="text-center"> Climate Change, because you should <i>feel</i> it.</h2>
         <p> Please take some time to reflect upon the weather on your location, compare it with the weather from 10
@@ -90,10 +89,15 @@
                   <input class="form-control" id="name-input" type="text">
                 </div>
                 <div class="form-group row">
-                  <label for="address-input">Address</label>
+                  <label for="email-input">Email</label>
+                  <input type="email" class="form-control" id="email-input" placeholder="Email">
+                  </div>
+                <div class="form-group row">
+                  <label for="message-input">Message</label>
                   <input class="form-control" id="addres-name" type="address">
                 </div>
                 <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+             
               </form>
             </div>
           </div>
@@ -117,7 +121,20 @@
             </div>
           </div>
         </div>
+
+        <div class="col-sm-6">
+            <div class="card card-default">
+            <label for="report-input">Report to :
+        <a href="https://www.un.org/en/contact-us/index.html"><img src="https://www.un.org/sites/www.un.org/themes/bootstrap_un/logo.png">UNITED NATIONS</a>
+      </label>
+        </div>
+        </div>
+
+
       </div>
+
+
+
       </br>
 
       <div class="row">
@@ -144,5 +161,4 @@
 
 
 </body>
-
 </html>
