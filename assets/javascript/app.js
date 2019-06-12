@@ -41,16 +41,30 @@ class UserSpecificClimateData {
         $.ajax({
             url: this.currentWeatherLink,
             method: "GET"
-        }).then(function (response) {
-            //let results = response.results;
-            console.log(response);
-            that.locationName = response.name;
-            that.currentTemp = response.main.temp;
-            that.currentHumidity = response.main.humidity;
-            that.currentPressure = response.main.pressure;
-            that.currentDescription = response.weather[0].description;
-            that.renderCurrentWeather(response)
-        });
+        }).then(
+            function (response) {
+                //let results = response.results;
+                console.log(response);
+                that.locationName = response.name;
+                that.currentTemp = response.main.temp;
+                that.minTemp = response.main.temp_min;
+                that.maxTemp = response.main.temp_max;
+                that.currentHumidity = response.main.humidity;
+                that.currentPressure = response.main.pressure;
+                that.currentDescription = response.weather[0].description;
+                that.renderCurrentWeather(response)
+                $('.card-header').text(that.locationName);
+                $('#average').text(" : " + that.currentTemp);
+                $('#maximum').text(' : ' + that.maxTemp)
+                $('#minimum').text(' : ' + that.minTemp)
+                $('#humidity').text (' : ' + that.currentHumidity)
+                $('#pressure').text(' : ' + that.currentPressure);
+            }
+
+        );
+
+      
+
 
     }
 
