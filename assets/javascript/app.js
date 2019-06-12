@@ -230,7 +230,7 @@ $(document).ready(async function () {
     //     console.log(data);
 
     // });
-
+    //some type of
 
     const data = await site.gethistoricalTempratureData("AL",0);
     console.log(data);
