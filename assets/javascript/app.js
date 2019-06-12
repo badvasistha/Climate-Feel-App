@@ -295,7 +295,7 @@ $(document).ready(async function () {
     //     console.log(data);
 
     // });
-    //some type of
+    //some hello whats up
 
     const data = await site.gethistoricalTempratureData("CA",0);
     console.log(data);
