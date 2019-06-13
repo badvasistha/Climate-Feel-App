@@ -21,13 +21,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 
-
 </head>
 
 <body>
   <div class="container-fluid">
-    <!-- <div> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
       <a class="navbar-brand text-success" href="./index.html"><b>Climate Feel App</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,12 +35,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=".text-primary">Link</a>
-          </li> -->
+        
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -57,9 +51,9 @@
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="EnterCity or Zip-code"
+          <input class="form-control mr-sm-2" type="search" id="input" placeholder="Enter City or Zip-code"
             aria-label="EnterCity or Zip-code">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" id="submit" type="submit">Search</button>
         </form>
       </div>
     </nav>
@@ -68,14 +62,10 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="weather-container valign-wrapper">
-
-     
-          <img src="./assets/images/climate_change.jpg" height = "300" class="img-fluid" alt="Responsive image">
-
-        <h2 class="text-center">Climate Change, because you should <i>feel</i> it.</h2>
+          <img src="./assets/images/climate_change.jpg" height="300" width="100%"  alt="Responsive image">
+              <h2 class="text-center">Climate Change, because you should <i>feel</i> it.</h2>
         <p class="lead"> Please take some time to reflect upon the weather on your location, compare it with the weather
-          from 10
-          years ago, and notice/report any significant climate change over the years.</p>
+          from 10years ago, and notice/report any significant climate change over the years.</p>
       </div>
 
       <div class="row">
@@ -126,8 +116,8 @@
         <div class="col-sm-6">
           <div class="card card-default">
             <label for="report-input">Report to :
-              <a href="https://www.un.org/en/contact-us/index.html" target="_blank"><img
-                  src="https://www.un.org/sites/www.un.org/themes/bootstrap_un/logo.png">UNITED NATIONS</a>
+              <a href="https://www.arborday.org/takeaction/" target="_blank"><img
+                  src="https://www.arborday.org/images/logos/logo-arbor-day-foundation-color.png" wedth="400" height="50"></a>
             </label>
           </div>
         </div>
