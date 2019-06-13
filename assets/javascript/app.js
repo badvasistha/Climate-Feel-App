@@ -128,7 +128,7 @@ class UserSpecificClimateData {
         let that = this;
         let states = {
             CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
-            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20", GLOBAL: "111"
+            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20", GLOBAL: "111",NV:"26"
         }
         return this.db.ref().once("value")
             .then(function (snapshot) {
