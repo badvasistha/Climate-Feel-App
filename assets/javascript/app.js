@@ -12,11 +12,13 @@ class UserSpecificClimateData {
         this.currentWeatherLink = ''; //https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets?datatypeid=TOBS
         this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GSOM&stationid=GHCND:USC00010008&units=standard&startdate=2010-05-01&enddate=2010-05-31'
         this.getIpAdressLink = "http://api.ipstack.com/check?access_key=a6a4e3b1ccb05e38dd1bb8fec6d55403";
-        this.GetUserLocationByIPAddress();
-        // this.userLocation = this.getUserLocation();
+        
         this.currentyear = new Date().getFullYear();
         this.db = firebaseDb;
         this.historicalData;
+        this.state;
+        this.latitude;
+        this.longitude;
 
     }
 
@@ -30,7 +32,7 @@ class UserSpecificClimateData {
     }
 
     setPosition = (position) => {
-        console.log(position.coords.latitude);
+        // console.log(position.coords.latitude);
         let lat = position.coords.latitude;
         this.latitude = lat;
         this.longitude = position.coordresponses.longitude;
@@ -48,7 +50,6 @@ class UserSpecificClimateData {
         this.zipCode = response.zip;
         this.latitude = response.latitude;
         this.longitude = response.longitude;  
-        console.log(`lat ${this.latitude}, long ${this.longitude}`);
         this.getCurrentWeather(); 
 
     }
@@ -83,7 +84,7 @@ class UserSpecificClimateData {
         $('#pressure').text('current Pressure(hPa): ' + this.currentPressure);
     }
 
-    gethistoricalTempratureData(state, monthsBack) {
+    gethistoricalTempratureData(state) {
         let that = this;
         let states = {
             CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
@@ -311,10 +312,10 @@ $(document).ready(async function () {
 
     // });
     //some hello whats up
+    await site.GetUserLocationByIPAddress();
+    console.log(site.state)
     
-    console.log(site.state);
-    const data = await site.gethistoricalTempratureData("AL", 0);
-    console.log(data);
+    const data = await site.gethistoricalTempratureData(site.state, 0);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
@@ -323,8 +324,6 @@ $(document).ready(async function () {
     site.renderPCPComparison(PCPComparison, $("#chartContainer1"));
     const oldMinMax = site.createMinMaxComparisonDataset(OldData);
     const CurrentMinMax = site.createMinMaxComparisonDataset(lastYearsData);
-    console.log(oldMinMax);
     site.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
-    site.GetUserLocationByIPAddress();
 
 });
