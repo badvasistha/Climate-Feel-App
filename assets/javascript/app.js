@@ -22,6 +22,46 @@ class UserSpecificClimateData {
 
     }
 
+    async LoadNewGraphs(input){
+        if(input === undefined){
+
+            await this.GetUserLocationByIPAddress();
+            console.log(this.state)
+            let data = await this.gethistoricalTempratureData(this.state);
+            //console.log(data);
+            let lastYearsData = this.getLastYearsDataFromHistorical(data);
+            let OldData = this.getDataFromXyearsAgo(data, 20);
+            let tavgComparisonData = this.createComparisonDataset(lastYearsData, OldData, "TAVG");
+            this.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
+            let PCPComparison = this.createComparisonDataset(lastYearsData, OldData, "PCP");
+            this.renderPCPComparison(PCPComparison, $("#chartContainer1"));
+            let oldMinMax = this.createMinMaxComparisonDataset(OldData);
+            let CurrentMinMax = this.createMinMaxComparisonDataset(lastYearsData);
+            this.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
+        
+            let NationalAverage = await this.gethistoricalTempratureData("GLOBAL");
+            this.renderNationalAverage(NationalAverage, $('#chartContainer3'));
+
+
+        } else{
+            let data = await this.gethistoricalTempratureData(input);
+            //console.log(data);
+            let lastYearsData = this.getLastYearsDataFromHistorical(data);
+            let OldData = this.getDataFromXyearsAgo(data, 20);
+            let tavgComparisonData = this.createComparisonDataset(lastYearsData, OldData, "TAVG");
+            this.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
+            let PCPComparison = this.createComparisonDataset(lastYearsData, OldData, "PCP");
+            this.renderPCPComparison(PCPComparison, $("#chartContainer1"));
+            let oldMinMax = this.createMinMaxComparisonDataset(OldData);
+            let CurrentMinMax = this.createMinMaxComparisonDataset(lastYearsData);
+            this.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
+        
+            let NationalAverage = await this.gethistoricalTempratureData("GLOBAL");
+            this.renderNationalAverage(NationalAverage, $('#chartContainer3'));
+
+        }
+    }
+
     getUserLocation() {
         let that = this;
         if (navigator.geolocation) {
@@ -276,32 +316,37 @@ class UserSpecificClimateData {
     }
 
     renderNationalAverage(Data, jquery) {
-        let dataPoints = [];
-        for(let i = Data.length-1; i>Data.length-300;i--){
+        let DPtoGraph = [];
+        for (let i = Data.length - 1; i > Data.length - 300; i--) {
+            let year = Data[i]['YearMonth'].toString().slice(0,3)
+            let month = Data[i]['YearMonth'].toString().slice(-2);
             let datapoint = {
-                x: Data[i]['YearMonth'], y: Data[i]['TAVG']
+                x: new Date(year, 1, month), y: Data[i]['TAVG']
             }
-            dataPoints.push(datapoint);
-            
+            DPtoGraph.push(datapoint);
+
         }
 
-        let data = [];
-        let dataSeries = { type: "line" };
-        dataSeries.dataPoints = dataPoints;
-        data.push(dataSeries);
-        console.log("printing NATIONAL AVERAGE DATA")
-        console.log(data);
-        //Better to construct options first and then pass it as a parameter
         var options = {
-            zoomEnabled: true,
             animationEnabled: true,
             title: {
-                text: "Try Zooming - Panning"
+                text: "Monthly Sales - 2017"
+            },
+            axisX: {
+                
             },
             axisY: {
-                includeZero: false
+                title: "Sales (in USD)",
+                prefix: "$",
+                includeZero: true,
+                logarithmic: true
             },
-            data: data  // random data
+            data: [{
+                yValueFormatString: "##.#",
+                xValueFormatString: "MMMM",
+                type: "spline",
+                dataPoints: DPtoGraph
+            }]
         };
 
         jquery.CanvasJSChart(options);
@@ -328,31 +373,14 @@ var database = firebase.database();
 
 var site = new UserSpecificClimateData(database);
 
-$(document).ready(async function () {
-    // site.gethistoricalTempratureData();
-    // site.gethistoricalTempratureData("CA",0).then(data => {
-    //     console.log(data);
-
-    // });
-    //some hello whats up
-    await site.GetUserLocationByIPAddress();
-    console.log(site.state)
-
-    const data = await site.gethistoricalTempratureData(site.state);
-    //console.log(data);
-    const lastYearsData = site.getLastYearsDataFromHistorical(data);
-    const OldData = site.getDataFromXyearsAgo(data, 20);
-    let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
-    site.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
-    let PCPComparison = site.createComparisonDataset(lastYearsData, OldData, "PCP");
-    site.renderPCPComparison(PCPComparison, $("#chartContainer1"));
-    const oldMinMax = site.createMinMaxComparisonDataset(OldData);
-    const CurrentMinMax = site.createMinMaxComparisonDataset(lastYearsData);
-    site.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
-    
-    const NationalAverage = await site.gethistoricalTempratureData("GLOBAL");
-    site.renderNationalAverage(NationalAverage, $('#chartContainer3'));
+$(document).ready(function () {
+    site.LoadNewGraphs("FL");
 
 
+
+    $(document).on("click", "idname", function(){
+
+
+    });
 
 });
