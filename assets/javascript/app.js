@@ -11,7 +11,10 @@ class UserSpecificClimateData {
         this.longitude = 0;
         this.currentWeatherLink = ''; //https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets?datatypeid=TOBS
         this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GSOM&stationid=GHCND:USC00010008&units=standard&startdate=2010-05-01&enddate=2010-05-31'
-        this.userLocation = this.getUserLocation();
+        this.getIpAdressLink = "http://api.ipstack.com/check?access_key=a6a4e3b1ccb05e38dd1bb8fec6d55403";
+        this.GetUserLocationByIPAddress();
+        this.getCurrentWeather();
+        // this.userLocation = this.getUserLocation();
         this.currentyear = new Date().getFullYear();
         this.db = firebaseDb;
         this.historicalData;
@@ -31,99 +34,108 @@ class UserSpecificClimateData {
         console.log(position.coords.latitude);
         let lat = position.coords.latitude;
         this.latitude = lat;
-        this.longitude = position.coords.longitude;
+        this.longitude = position.coordresponses.longitude;
         this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
         this.getCurrentWeather();
     }
 
-    getCurrentWeather() {
-        let that = this;
-        $.ajax({
+    async GetUserLocationByIPAddress() {
+        const response = await $.ajax({
+            url: this.getIpAdressLink,
+            method: "GET"
+        });
+        console.log(response)
+        this.state = response.region_code;
+        this.zipCode = response.zip;
+        this.latitude = response.latitude;
+        this.longitude = response.longitude;   
+
+    }
+
+   async getCurrentWeather() {
+    if(this.latitude === undefined||this.longitude === undefined){
+        this.getUserLocation();
+    }
+    this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
+       const response = await $.ajax({
             url: this.currentWeatherLink,
             method: "GET"
-        }).then(
-            function (response) {
-                //let results = response.results;
-                console.log(response);
-                that.locationName = response.name;
-                that.currentTemp = response.main.temp;
-                that.minTemp = response.main.temp_min;
-                that.maxTemp = response.main.temp_max;
-                that.currentHumidity = response.main.humidity;
-                that.currentPressure = response.main.pressure;
-                that.currentDescription = response.weather[0].description;
-                that.renderCurrentWeather(response)
-                $('#current-weather').text(that.locationName);
-                $('#average').text("Average Temprature °F: " + that.currentTemp);
-                $('#maximum').text('Max Temprature °F: ' + that.maxTemp)
-                $('#minimum').text('Min Temprature °F: ' + that.minTemp)
-                $('#humidity').text ('Humidity%: ' + that.currentHumidity)
-                $('#pressure').text('current Pressure(hPa): ' + that.currentPressure);
 
-            }
-
-        );
-
-
-
-
-    }
-
-    renderCurrentWeather(data){
-
-    }
-
-    gethistoricalTempratureData( state, monthsBack) {
-        let that = this;
-        let states = {CA:"04",CO:"05",AL:"01",AK:"50",AZ:"03",AR:"02",CT:'06',DE:"07",FL:"08",GE:"09",ID:"10",
-         IL:"11",IN:"12", IO:"13",KA:"14", KE:"15",MA:"19",MD:"18",ME:"17",MI:"20"}
-        return this.db.ref().once("value")
-        .then(function(snapshot) {
-            that.historicalData = snapshot.child(`USA${states[state]}`).val()
-           return that.historicalData;
         });
+        console.log(response);
+        this.locationName = response.name;
+        this.currentTemp = response.main.temp;
+        this.minTemp = response.main.temp_min;
+        this.maxTemp = response.main.temp_max;
+        this.currentHumidity = response.main.humidity;
+        this.currentPressure = response.main.pressure;
+        this.currentDescription = response.weather[0].description;
+        this.renderCurrentWeather();
+    }
+
+    renderCurrentWeather() {
+        $('.card-header').text(this.locationName);
+        $('#average').text("Average Temprature °F: " + this.currentTemp);
+        $('#maximum').text('Max Temprature °F: ' + this.maxTemp)
+        $('#minimum').text('Min Temprature °F: ' + this.minTemp)
+        $('#humidity').text('Humidity%: ' + this.currentHumidity)
+        $('#pressure').text('current Pressure(hPa): ' + this.currentPressure);
+    }
+
+    gethistoricalTempratureData(state, monthsBack) {
+        let that = this;
+        let states = {
+            CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
+            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20"
+        }
+        return this.db.ref().once("value")
+            .then(function (snapshot) {
+                that.historicalData = snapshot.child(`USA${states[state]}`).val()
+                return that.historicalData;
+            });
 
     }
 
-//get data from the last 12 months and returns an ARRAY containing the object datapoints
-   getLastYearsDataFromHistorical(data){
-        let startingIndex = data.length-12;
+    //get data from the last 12 months and returns an ARRAY containing the object datapoints
+    getLastYearsDataFromHistorical(data) {
+        let startingIndex = data.length - 12;
         let Last12MonthsOfData = [];
-        for(let i = startingIndex; i < data.length; i++){
+        for (let i = startingIndex; i < data.length; i++) {
             Last12MonthsOfData.push(data[i]);
         }
         return Last12MonthsOfData;
     }
 
 
-//will throw a null error if you put a number too large 20 is max
-    getDataFromXyearsAgo(data, x){
-        if(x>20|| x<0){
+    //will throw a null error if you put a number too large 20 is max
+    getDataFromXyearsAgo(data, x) {
+        if (x > 20 || x < 0) {
             console.error("error X is either greater that 20, undifined, or less than 0")
-        }else{
-        let months = x*12
-        let startingIndex = data.length-months;
-        let DataOver12Months = [];
-        for(let i = startingIndex; i < startingIndex+12; i++){
-            DataOver12Months.push(data[i]);
+        } else {
+            let months = x * 12
+            let startingIndex = data.length - months;
+            let DataOver12Months = [];
+            for (let i = startingIndex; i < startingIndex + 12; i++) {
+                DataOver12Months.push(data[i]);
+            }
+            return DataOver12Months;
         }
-        return DataOver12Months;
-    }
     }
 
     //takes Data from current 12 months and compares it to past 12 months
-    createComparisonDataset(Datacurrent, DataPast, label){
-        if(Datacurrent.length !== DataPast.length){
+    createComparisonDataset(Datacurrent, DataPast, label) {
+        if (Datacurrent.length !== DataPast.length) {
             console.error("datasets are different lengths and cannot be built");
         }
         let output = []
-        for(let i = 0; i<Datacurrent.length;i++){
-            if(DataPast[i]["YearMonth"].toString().slice(-2) !== Datacurrent[i]["YearMonth"].toString().slice(-2)){
+        for (let i = 0; i < Datacurrent.length; i++) {
+            if (DataPast[i]["YearMonth"].toString().slice(-2) !== Datacurrent[i]["YearMonth"].toString().slice(-2)) {
                 console.error("The TWO datasets do not have matching dates")
             }
             let datapointmonth = parseInt(DataPast[i]["YearMonth"].toString().slice(-2));
 
-            let datapoint = { x: i+1, y:[DataPast[i][label], Datacurrent[i][label]], label:datapointmonth
+            let datapoint = {
+                x: i + 1, y: [DataPast[i][label], Datacurrent[i][label]], label: datapointmonth
             }
             output.push(datapoint);
 
@@ -132,18 +144,41 @@ class UserSpecificClimateData {
     }
 
 
+    //takes Data from current 12 months and compares it to past 12 months
+    createMinMaxComparisonDataset(Dataset) {
+        let output = []
+        for (let i = 0; i < Dataset.length; i++) {
+            let datapointmonth = parseInt(Dataset[i]["YearMonth"].toString().slice(-2));
+            let datapoint = {
+                x: i + 1, y: [Dataset[i]["TMIN"], Dataset[i]["TMAX"]], label: datapointmonth
+            }
+            output.push(datapoint);
+
+        }
+        return output;
+    }
+
+    toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        } else {
+            e.dataSeries.visible = true;
+        }
+        e.chart.render();
+    }
+
     //function which is called after state specific historical data is recived from Firebase
-    renderTAVGComparison(TAV, jquery){
+    renderTAVGComparison(TAV, jquery) {
         var options = {
             exportEnabled: true,
             animationEnabled: true,
-            title:{
+            title: {
                 text: "Monthly Average Temperature Variation in your state"
             },
             axisX: {
                 title: "Month Of the year",
-                labelFormatter: function(e){
-                    return  "x: " + e.value;
+                labelFormatter: function (e) {
+                    return "x: " + e.value;
                 }
 
             },
@@ -153,7 +188,8 @@ class UserSpecificClimateData {
 
             },
             data: [{
-                type: "rangeSplineArea",
+                // type: "rangeSplineArea",
+                type: "rangeArea",
                 indexLabel: "{y[#index]}°",
 
                 dataPoints: TAV
@@ -163,32 +199,74 @@ class UserSpecificClimateData {
 
     }
 
-    renderPCPComparison(PCP, jquery){
-      var options = {
-          exportEnabled: true,
-          animationEnabled: true,
-          title:{
-              text: "Average percipitation this year vs 20 years ago"
-          },
-          axisX: {
-              title: "Month Of the year",
-              labelFormatter: function(e){
-                  return  "x: " + e.value;
-              }
-          },
-          axisY: {
-              title: "Inches of rain",
-              suffix: `"`,
-              logarithmic:  true
-          },
-          data: [{
-              type: "rangeSplineArea",
-              indexLabel: "{y[#index]}°",
+    renderPCPComparison(PCP, jquery) {
+        var options = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Average percipitation this year vs 20 years ago"
+            },
+            axisX: {
+                title: "Month Of the year",
+                labelFormatter: function (e) {
+                    return "x: " + e.value;
+                }
+            },
+            axisY: {
+                title: "Inches of rain",
+                suffix: `"`,
+                logarithmic: true
+            },
+            data: [{
+                type: "rangeSplineArea",
+                indexLabel: "{y[#index]}°",
 
-              dataPoints: PCP
-          }]
-      };
-      jquery.CanvasJSChart(options);
+                dataPoints: PCP
+            }]
+        };
+        jquery.CanvasJSChart(options);
+    }
+
+    renderMinMaxComparrisonData(Past, current, DisplayID) {
+
+        var chart = new CanvasJS.Chart(DisplayID, {
+            exportEnabled: true,
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Temperature Variation - last Year vs 20 Years Ago"
+            },
+            axisX: {
+                title: "12 month Period"
+            },
+            axisY: {
+                suffix: " °F"
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                horizontalAlign: "right",
+                itemclick: this.toggleDataSeries
+            },
+            data: [{
+                type: "rangeArea",
+                showInLegend: true,
+                name: "Past Data",
+                markerSize: 0,
+                dataPoints: Past
+            },
+            {
+                type: "rangeArea",
+                showInLegend: true,
+                name: "Current Data",
+                markerSize: 0,
+                dataPoints: current
+            }]
+        });
+        chart.render();
+
     }
 
     getHistoricalCO2Data() {
@@ -218,7 +296,7 @@ var firebaseConfig = {
     storageBucket: "",
     messagingSenderId: "76697086015",
     appId: "1:76697086015:web:806c5d978abc1e0b"
-  };
+};
 
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
@@ -231,19 +309,21 @@ $(document).ready(async function () {
     //     console.log(data);
 
     // });
-    //some type of
+    //some hello whats up
 
-    const data = await site.gethistoricalTempratureData("AL",0);
+
+    const data = await site.gethistoricalTempratureData("AL", 0);
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
     site.renderTAVGComparison(tavgComparisonData, $("#chartContainer"));
     let PCPComparison = site.createComparisonDataset(lastYearsData, OldData, "PCP");
-    console.log(PCPComparison);
     site.renderPCPComparison(PCPComparison, $("#chartContainer1"));
-
-
-
+    const oldMinMax = site.createMinMaxComparisonDataset(OldData);
+    const CurrentMinMax = site.createMinMaxComparisonDataset(lastYearsData);
+    console.log(oldMinMax);
+    site.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
+    site.GetUserLocationByIPAddress();
 
 });
