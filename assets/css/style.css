@@ -1,6 +1,4 @@
 * {
-
-    /* background-color: #92AA83; */
     
 }
 
@@ -12,10 +10,15 @@
 .jumbotron {
    background:  #92AA83;
     color: #4DA1A9;
-    padding-top: 5px;
-    
- }
+    margin-top: -10px;
+}
 nav {
-    position: fixed;
+    
+    border: 3px solid #92AA83;
+   
+}
+.weather-container  {
+    padding-inline-start: -5px;
+    margin-top: -40px;
 }
 
