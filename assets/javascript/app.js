@@ -12,7 +12,7 @@ class UserSpecificClimateData {
         this.currentWeatherLink = ''; //https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets?datatypeid=TOBS
         this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GSOM&stationid=GHCND:USC00010008&units=standard&startdate=2010-05-01&enddate=2010-05-31'
         this.getIpAdressLink = "http://api.ipstack.com/check?access_key=a6a4e3b1ccb05e38dd1bb8fec6d55403";
-        
+
         this.currentyear = new Date().getFullYear();
         this.db = firebaseDb;
         this.historicalData;
@@ -49,17 +49,17 @@ class UserSpecificClimateData {
         this.state = response.region_code;
         this.zipCode = response.zip;
         this.latitude = response.latitude;
-        this.longitude = response.longitude;  
-        this.getCurrentWeather(); 
+        this.longitude = response.longitude;
+        this.getCurrentWeather();
 
     }
 
-   async getCurrentWeather() {
-    if(this.latitude === undefined||this.longitude === undefined){
-        this.getUserLocation();
-    }
-    this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
-       const response = await $.ajax({
+    async getCurrentWeather() {
+        if (this.latitude === undefined || this.longitude === undefined) {
+            this.getUserLocation();
+        }
+        this.currentWeatherLink = `http://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
+        const response = await $.ajax({
             url: this.currentWeatherLink,
             method: "GET"
 
@@ -88,7 +88,7 @@ class UserSpecificClimateData {
         let that = this;
         let states = {
             CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
-            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20"
+            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20", GLOBAL: "111"
         }
         return this.db.ref().once("value")
             .then(function (snapshot) {
@@ -173,6 +173,7 @@ class UserSpecificClimateData {
     renderTAVGComparison(TAV, jquery) {
         var options = {
             exportEnabled: true,
+            zoomEnabled: true,
             animationEnabled: true,
             title: {
                 text: "Monthly Average Temperature Variation in your state"
@@ -202,8 +203,10 @@ class UserSpecificClimateData {
     }
 
     renderPCPComparison(PCP, jquery) {
+        console.log(JSON.stringify(PCP));
         var options = {
             exportEnabled: true,
+            zoomEnabled: true,
             animationEnabled: true,
             title: {
                 text: "Average percipitation this year vs 20 years ago"
@@ -217,11 +220,12 @@ class UserSpecificClimateData {
             axisY: {
                 title: "Inches of rain",
                 suffix: `"`,
+                alueFormatString: "##.#",
                 logarithmic: true
             },
             data: [{
                 type: "rangeSplineArea",
-                indexLabel: "{y[#index]}°",
+                indexLabel: "{y[#index]}",
 
                 dataPoints: PCP
             }]
@@ -271,24 +275,43 @@ class UserSpecificClimateData {
 
     }
 
-    getHistoricalCO2Data() {
+    renderNationalAverage(Data, jquery) {
+        let dataPoints = [];
+        for(let i = Data.length-1; i>Data.length-300;i--){
+            let datapoint = {
+                x: Data[i]['YearMonth'], y: Data[i]['TAVG']
+            }
+            dataPoints.push(datapoint);
+            
+        }
 
+        let data = [];
+        let dataSeries = { type: "line" };
+        dataSeries.dataPoints = dataPoints;
+        data.push(dataSeries);
+        console.log("printing NATIONAL AVERAGE DATA")
+        console.log(data);
+        //Better to construct options first and then pass it as a parameter
+        var options = {
+            zoomEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Try Zooming - Panning"
+            },
+            axisY: {
+                includeZero: false
+            },
+            data: data  // random data
+        };
 
+        jquery.CanvasJSChart(options);
     }
 
-    getcurrentAirQuality() {
 
 
-
-    }
-
-
-
-
-
-
-
+    //class ends
 }
+//class ends
 //firebase variable
 var firebaseConfig = {
     apiKey: "AIzaSyAJe06nmla8caiFGdvD9f3MhHGZVdvSwD0",
@@ -314,8 +337,9 @@ $(document).ready(async function () {
     //some hello whats up
     await site.GetUserLocationByIPAddress();
     console.log(site.state)
-    
-    const data = await site.gethistoricalTempratureData(site.state, 0);
+
+    const data = await site.gethistoricalTempratureData(site.state);
+    //console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
     const OldData = site.getDataFromXyearsAgo(data, 20);
     let tavgComparisonData = site.createComparisonDataset(lastYearsData, OldData, "TAVG");
@@ -325,5 +349,10 @@ $(document).ready(async function () {
     const oldMinMax = site.createMinMaxComparisonDataset(OldData);
     const CurrentMinMax = site.createMinMaxComparisonDataset(lastYearsData);
     site.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
+    
+    const NationalAverage = await site.gethistoricalTempratureData("GLOBAL");
+    site.renderNationalAverage(NationalAverage, $('#chartContainer3'));
+
+
 
 });
