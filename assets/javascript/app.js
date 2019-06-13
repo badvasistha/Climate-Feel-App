@@ -13,7 +13,6 @@ class UserSpecificClimateData {
         this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GSOM&stationid=GHCND:USC00010008&units=standard&startdate=2010-05-01&enddate=2010-05-31'
         this.getIpAdressLink = "http://api.ipstack.com/check?access_key=a6a4e3b1ccb05e38dd1bb8fec6d55403";
         this.GetUserLocationByIPAddress();
-        this.getCurrentWeather();
         // this.userLocation = this.getUserLocation();
         this.currentyear = new Date().getFullYear();
         this.db = firebaseDb;
@@ -48,7 +47,9 @@ class UserSpecificClimateData {
         this.state = response.region_code;
         this.zipCode = response.zip;
         this.latitude = response.latitude;
-        this.longitude = response.longitude;   
+        this.longitude = response.longitude;  
+        console.log(`lat ${this.latitude}, long ${this.longitude}`);
+        this.getCurrentWeather(); 
 
     }
 
@@ -315,8 +316,8 @@ $(document).ready(async function () {
 
     // });
     //some hello whats up
-
-
+    
+    console.log(site.state);
     const data = await site.gethistoricalTempratureData("AL", 0);
     console.log(data);
     const lastYearsData = site.getLastYearsDataFromHistorical(data);
