@@ -1,6 +1,18 @@
 * {
+    /* background-color: #92AA83; */
+    
+}
 
+.container-fluid {
+   background-color: #92AA83;
+   color: #4DA1A9;
+   
 }
 .jumbotron {
-    background-image: image(headerimg.jpg)
+   background:  #92AA83;
+    color: #4DA1A9;
+    
+ }
+nav {
+    position: fixed;
 }

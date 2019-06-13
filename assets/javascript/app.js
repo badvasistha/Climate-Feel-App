@@ -75,7 +75,7 @@ class UserSpecificClimateData {
     }
 
     renderCurrentWeather() {
-        $('.current-weather').text(this.locationName);
+        $('#current-weather').text("City: " + this.locationName);
         $('#average').text("Average Temprature °F: " + this.currentTemp);
         $('#maximum').text('Max Temprature °F: ' + this.maxTemp)
         $('#minimum').text('Min Temprature °F: ' + this.minTemp)
