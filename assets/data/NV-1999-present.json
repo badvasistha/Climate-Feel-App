@@ -1,4 +1,4 @@
-var historicalData = [
+[
   {
     "StateCode": 26,
     "Division": "00",
@@ -5634,69 +5634,4 @@ var historicalData = [
     "TMAX": 63.9,
     "": ""
   }
-];
-
-
-var removeExtraKeys = function () {
-  let output = [];
-  for (let i = 0; i < historicalData.length; i++) {
-    let outputobject = {
-      "YearMonth": historicalData[i].YearMonth, "PCP": historicalData[i].PCP,
-      "TAVG": historicalData[i].TAVG, "TMIN": historicalData[i].TMIN, "TMAX": historicalData[i].TMAX
-    };
-    output.push(outputobject);
-  }
-  return output;
-
-}
-
-// var buildOutputArray = function(data){
-//     let output = [{
-//       YearMonth: data[0][`04`],
-//       PCP: data[1][`04`],
-//       TAVG: data[2][`04`],
-//       TMIN: data[3][`04`],
-//       TMAX: data[4][`04`]
-//   }];
-//   for(i = 1; i<241;i++){
-//       let datapoint = {
-//           YearMonth: data[0][`04__${i}`],
-//           PCP: data[1][`04__${i}`],
-//           TAVG: data[2][`04__${i}`],
-//           TMIN: data[3][`04__${i}`],
-//           TMAX: data[4][`04__${i}`]
-//       };
-//       output.push(datapoint);
-
-//   }
-//   return output;
-// }
-
-var firebaseConfig = {
-  // apiKey: "AIzaSyAJe06nmla8caiFGdvD9f3MhHGZVdvSwD0",
-  authDomain: "climate-feel.firebaseapp.com",
-  databaseURL: "https://climate-feel.firebaseio.com",
-  projectId: "climate-feel",
-  storageBucket: "",
-  messagingSenderId: "76697086015",
-  appId: "1:76697086015:web:806c5d978abc1e0b"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-var database = firebase.database();
-
-// database.ref().set({USAbyState:{
-//   CA: historicalData
-// }});
-console.log(removeExtraKeys());
-database.ref().update({ USA26: removeExtraKeys() });
-  //first we get the old one
-  // database.ref().once("value")
-  // .then(function(snapshot) {
-  //   console.log(snapshot.val());
-
-  // });
-
-
-
+]
