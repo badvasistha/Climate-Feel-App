@@ -25,8 +25,8 @@
 
 <body>
   <div class="container-fluid">
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand text-success" href="./index.html"><b>Climate Feel App</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -62,8 +62,8 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="weather-container valign-wrapper">
-          <img src="./assets/images/climate_change.jpg" height="300" width="100%"  alt="Responsive image">
-              <h2 class="text-center">Climate Change, because you should <i>feel</i> it.</h2>
+        <img src="./assets/images/climate_change.jpg" height="300" width="100%" alt="Responsive image">
+        <h2 class="text-center">Climate Change, because you should <i>feel</i> it.</h2>
         <p class="lead"> Please take some time to reflect upon the weather on your location, compare it with the weather
           from 10years ago, and notice/report any significant climate change over the years.</p>
       </div>
@@ -97,39 +97,53 @@
 
         <!-- Most Recent Member card -->
         <div class="col-sm-6">
-          <div class="card card-default">
-            <div class="card-header p-3 mb-2 bg-dark">
-              <h2 class="text-primary" id='current-weather'>Current Weather </h2>
-            </div>
-            <div class="list-group">
-              <p class="list-group-item list-group-item-action list-group-item-secondary" id="average">Average
-                Temperature</p>
-              <p class="list-group-item list-group-item-action list-group-item-danger" id="maximum">Maximum Temperature
-              </p>
-              <p class="list-group-item list-group-item-action list-group-item-info" id="minimum">Minimum Temperature
-              </p>
-              <p class="list-group-item list-group-item-action list-group-item-warning" id="humidity">Humidity</p>
-              <p class="list-group-item list-group-item-action list-group-item-primary" id="pressure">Pressure</p>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card card-default">
+                <div class="card-header p-3 mb-2 bg-dark">
+                  <h2 class="text-primary" id='current-weather'>Current Weather </h2>
+                </div>
+                <div class="list-group">
+                  <p class="list-group-item list-group-item-action list-group-item-secondary" id="average">Average
+                    Temperature</p>
+                  <p class="list-group-item list-group-item-action list-group-item-danger" id="maximum">Maximum
+                    Temperature
+                  </p>
+                  <p class="list-group-item list-group-item-action list-group-item-info" id="minimum">Minimum
+                    Temperature
+                  </p>
+                  <p class="list-group-item list-group-item-action list-group-item-warning" id="humidity">Humidity</p>
+                  <p class="list-group-item list-group-item-action list-group-item-primary" id="pressure">Pressure</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="card card-default">
-            <label for="report-input">Report to :
-              <a href="https://www.arborday.org/takeaction/" target="_blank"><img
-                  src="https://www.arborday.org/images/logos/logo-arbor-day-foundation-color.png" wedth="400" height="50"></a>
-            </label>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card card-default">
+                <label for="report-input">Report to :
+                  <a href="https://www.arborday.org/takeaction/" target="_blank"><img
+                      src="https://www.arborday.org/images/logos/logo-arbor-day-foundation-color.png" width="100%"
+                      height="50"></a>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       </br>
-      
-     <div class="row">
-       <div class="col-sm-12">
-          <div id="co2-widget-container"></div><script type="text/javascript" src="https://www.climatelevels.org/graphs/js/co2.php?theme=dark-unica&pid=2degreesinstitute"></script>
-    </div>
-  </div>
-</br>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="co2-widget-container"></div>
+          <script type="text/javascript"
+            src="https://www.climatelevels.org/graphs/js/co2.php?theme=dark-unica&pid=2degreesinstitute"
+            style="height: 350px; width: 100%"></script>
+        </div>
+      </div>
+      </br>
 
       <div class="row">
         <div class="col-sm-6">
