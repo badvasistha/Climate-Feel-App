@@ -1,6 +1,11 @@
 * {
-
 }
-.jumbotron {
-    background-image: image(headerimg.jpg)
+
+body {
+    color: #4da1a9;
+    background-color: #92aa83;
+}
+
+.text-center{
+    background-color: #4da1a9;
 }
