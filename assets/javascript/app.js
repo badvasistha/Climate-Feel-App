@@ -374,7 +374,7 @@ var database = firebase.database();
 var site = new UserSpecificClimateData(database);
 
 $(document).ready(function () {
-    site.LoadNewGraphs("FL");
+    site.LoadNewGraphs();
 
 
 
