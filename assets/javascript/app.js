@@ -61,6 +61,7 @@ class UserSpecificClimateData {
        const response = await $.ajax({
             url: this.currentWeatherLink,
             method: "GET"
+
         });
         console.log(response);
         this.locationName = response.name;
@@ -71,12 +72,6 @@ class UserSpecificClimateData {
         this.currentPressure = response.main.pressure;
         this.currentDescription = response.weather[0].description;
         this.renderCurrentWeather();
-
-
-
-
-
-
     }
 
     renderCurrentWeather() {
