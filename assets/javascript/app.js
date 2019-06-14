@@ -19,7 +19,10 @@ class UserSpecificClimateData {
         this.state;
         this.latitude;
         this.longitude;
-
+        this.states = {
+            CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
+            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20", GLOBAL: "111",NV:"26"
+        }
     }
 
     async LoadNewGraphs(input){
@@ -126,13 +129,9 @@ class UserSpecificClimateData {
 
     gethistoricalTempratureData(state) {
         let that = this;
-        let states = {
-            CA: "04", CO: "05", AL: "01", AK: "50", AZ: "03", AR: "02", CT: '06', DE: "07", FL: "08", GE: "09", ID: "10",
-            IL: "11", IN: "12", IO: "13", KA: "14", KE: "15", MA: "19", MD: "18", ME: "17", MI: "20", GLOBAL: "111",NV:"26"
-        }
         return this.db.ref().once("value")
             .then(function (snapshot) {
-                that.historicalData = snapshot.child(`USA${states[state]}`).val()
+                that.historicalData = snapshot.child(`USA${that.states[state]}`).val()
                 return that.historicalData;
             });
 
@@ -378,9 +377,20 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", "idname", function(){
-
-
+    $(document).on("click", "#submit", function(Event){
+        Event.preventDefault();
+        let input = $("#input").val();
+        console.log(input);
+        let uppdercase = input.toUpperCase();
+        if(site.states[uppdercase] !== undefined){//&& site.states[input] !== undefined
+            console.log(`loading input`);
+            site.LoadNewGraphs(uppdercase);
+            }
+            else if(parseInt(input) > 1000){
+                console.log("zip code?")
+            }
+            
+        
     });
 
 });
