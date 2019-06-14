@@ -8,9 +8,9 @@
    
 }
 .jumbotron {
-   background:  #92AA83;
-    color: #4DA1A9;
-    margin-top: -10px;
+   background-color:  rgb(170, 193, 224);
+    color: rgb(1, 22, 24);
+    margin-top: -5px;
 }
 nav {
     
@@ -19,6 +19,10 @@ nav {
 }
 .weather-container  {
     padding-inline-start: -5px;
-    margin-top: -40px;
+    margin-top: -30px;
 }
-
+.card-footer {
+    color: rgb(217, 68, 247);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
