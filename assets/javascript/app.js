@@ -42,7 +42,7 @@ class UserSpecificClimateData {
             
             let NationalAverage = await this.gethistoricalTempratureData("GLOBAL");
             this.renderNationalAverage(NationalAverage, $('#chartContainer3'));
-
+//whats up
 
         } else{
             let data = await this.gethistoricalTempratureData(input);
