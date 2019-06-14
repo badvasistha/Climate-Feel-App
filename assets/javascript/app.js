@@ -13,7 +13,6 @@ class UserSpecificClimateData {
         this.historicalWeatherLink = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GSOM&stationid=GHCND:USC00010008&units=standard&startdate=2010-05-01&enddate=2010-05-31'
         this.getIpAdressLink = "http://api.ipstack.com/check?access_key=a6a4e3b1ccb05e38dd1bb8fec6d55403";
 
-        this.currentyear = new Date().getFullYear();
         this.db = firebaseDb;
         this.historicalData;
         this.state;
@@ -29,7 +28,6 @@ class UserSpecificClimateData {
         if(input === undefined){
 
             await this.GetUserLocationByIPAddress();
-            console.log(this.state)
             let data = await this.gethistoricalTempratureData(this.state);
             //console.log(data);
             let lastYearsData = this.getLastYearsDataFromHistorical(data);
@@ -41,7 +39,7 @@ class UserSpecificClimateData {
             let oldMinMax = this.createMinMaxComparisonDataset(OldData);
             let CurrentMinMax = this.createMinMaxComparisonDataset(lastYearsData);
             this.renderMinMaxComparrisonData(oldMinMax, CurrentMinMax, "chartContainer2");
-        
+            
             let NationalAverage = await this.gethistoricalTempratureData("GLOBAL");
             this.renderNationalAverage(NationalAverage, $('#chartContainer3'));
 
@@ -88,7 +86,6 @@ class UserSpecificClimateData {
             url: this.getIpAdressLink,
             method: "GET"
         });
-        console.log(response)
         this.state = response.region_code;
         this.zipCode = response.zip;
         this.latitude = response.latitude;
@@ -107,7 +104,6 @@ class UserSpecificClimateData {
             method: "GET"
 
         });
-        console.log(response);
         this.locationName = response.name;
         this.currentTemp = response.main.temp;
         this.minTemp = response.main.temp_min;
@@ -242,7 +238,7 @@ class UserSpecificClimateData {
     }
 
     renderPCPComparison(PCP, jquery) {
-        console.log(JSON.stringify(PCP));
+        // console.log(JSON.stringify(PCP));
         var options = {
             exportEnabled: true,
             zoomEnabled: true,
@@ -316,33 +312,41 @@ class UserSpecificClimateData {
 
     renderNationalAverage(Data, jquery) {
         let DPtoGraph = [];
-        for (let i = Data.length - 1; i > Data.length - 300; i--) {
-            let year = Data[i]['YearMonth'].toString().slice(0,3)
-            let month = Data[i]['YearMonth'].toString().slice(-2);
+        let trimmedData = [];
+        for(let i =0; i<Data.length;i++){
+            if(parseInt(Data[i]['YearMonth'].toString().slice(0,4))%10==0){
+                trimmedData.push(Data[i])
+            }
+
+        }
+        
+
+        for (let i = 0; i < trimmedData.length; i++) {
+            let year = trimmedData[i]['YearMonth'].toString().slice(0,4)
+            let month = trimmedData[i]['YearMonth'].toString().slice(-2);
             let datapoint = {
-                x: new Date(year, 1, month), y: Data[i]['TAVG']
+                x: new Date(year, 1, month), y: trimmedData[i]['TAVG']
             }
             DPtoGraph.push(datapoint);
 
         }
-
         var options = {
             animationEnabled: true,
             title: {
-                text: "Monthly Sales - 2017"
+                text: "National Average Tempratue Data since 1850"
             },
             axisX: {
                 
             },
             axisY: {
-                title: "Sales (in USD)",
-                prefix: "$",
+                title: "Tempratue (°F)",
+                prefix: "°F",
                 includeZero: true,
                 logarithmic: true
             },
             data: [{
                 yValueFormatString: "##.#",
-                xValueFormatString: "MMMM",
+                xValueFormatString: "YYYY MM",
                 type: "spline",
                 dataPoints: DPtoGraph
             }]
@@ -374,7 +378,7 @@ var site = new UserSpecificClimateData(database);
 
 $(document).ready(function () {
     site.LoadNewGraphs();
-
+    
 
 
     $(document).on("click", "#submit", function(Event){
@@ -383,7 +387,6 @@ $(document).ready(function () {
         console.log(input);
         let uppdercase = input.toUpperCase();
         if(site.states[uppdercase] !== undefined){//&& site.states[input] !== undefined
-            console.log(`loading input`);
             site.LoadNewGraphs(uppdercase);
             }
             else if(parseInt(input) > 1000){
